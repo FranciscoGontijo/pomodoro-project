@@ -1,6 +1,8 @@
+import "./labeltag.css"
+
 const LabelTag = () => {
     return (
-        <div>
+        <div className="labeltag">
             <h2>Label Tag</h2>
         </div>
     )

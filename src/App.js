@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
 
 import SideBar from './components/sidebar/sidebar';
 import LabelTag from './components/labeltag/labeltag';
@@ -7,11 +8,17 @@ import Timer from './components/timer/timer';
 
 function App() {
   return (
-    <div className="App">
-      <SideBar />
-      <LabelTag />
-      <Timer /> 
-    </div>
+    <>
+      <SideBar/>
+      <Routes>
+        <Route path="/timer" element={
+          <div>
+            <LabelTag />
+            <Timer />
+          </div>
+        } />
+      </Routes>
+    </>
   );
 }
 
