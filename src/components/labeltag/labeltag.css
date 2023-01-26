@@ -1,4 +1,75 @@
 .labeltag {
     text-align: center;
     background-color: brown;
+    display: flex;
+    flex-direction: column;
 }
+
+.label-button {
+    border-radius: 5px;
+    background-color: pink;
+    width: fit-content;
+    align-self: center;
+    font-weight: bolder;
+}
+
+.hidden {
+    display: none;
+}
+
+.shown {
+    display: block;
+}
+
+.pink {
+    color: pink;
+}
+
+.purple {
+    color: purple;
+}
+
+.indigo {
+    color: indigo;
+}
+
+.blue {
+    color: blue;
+}
+
+.lightblue {
+    color: lightblue;
+}
+
+.cyan {
+    color: cyan;
+}
+
+.teal {
+    color: teal;
+}
+
+.green {
+    color: green;
+}
+
+.lightgreen {
+    color: lightgreen;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.orange {
+    color: orange;
+}
+
+.brown {
+    color: brown;
+}
+
+.gray {
+    color: gray;
+}
+
