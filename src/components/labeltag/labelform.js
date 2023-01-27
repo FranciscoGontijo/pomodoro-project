@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { changeLabel } from './labeltagslice';
 import './labelform.css'
 
-const LabelForm = (props) => {
-    const { submitColorChange, submitNameChange, handleClick } = props;
+const LabelForm = ({ handleClick }) => {
     const [label, setLabel] = useState('');
-    const [color,setColor] = useState('gray');
+    const [color,setColor] = useState('black');
+    const dispatch = useDispatch();
 
     const handleColorChange = (e) => {
         setColor(color => color = e.target.value);
@@ -16,11 +18,15 @@ const LabelForm = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        submitColorChange(color);
-        submitNameChange(label);
+        dispatch(changeLabel({
+            label: label,
+            color: color
+        }))
         setLabel('');
         handleClick();
     };
+
+    
 
     return (
         <div className="edit-label-container">

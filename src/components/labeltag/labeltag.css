@@ -21,6 +21,10 @@
     display: block;
 }
 
+.black {
+    color: black;
+}
+
 .pink {
     color: pink;
 }
