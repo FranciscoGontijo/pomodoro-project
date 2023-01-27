@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { useDispatch } from "react-redux";
+import { changeSettings } from "./settingsSlice"
+
 import "./settings.css";
 
 const Settings = () => {
@@ -6,6 +9,7 @@ const Settings = () => {
     const [shortBreakTime, setShortBreakTime] = useState(5);
     const [longBreakTime, setLongBreakTime] = useState(25);
     const [rounds, setRounds] = useState(4);
+    const dispatch = useDispatch();
 
     const handleWorkChange = (e) => {
         setWorkTime(time => time = e.target.value);
@@ -25,7 +29,15 @@ const Settings = () => {
 
     const handleSubmit = (e) => {
         //uptade main state
-
+        e.preventDefault();
+        dispatch(
+            changeSettings({
+                workTime: workTime,
+                shortBreakTime: shortBreakTime,
+                longBreakTime: longBreakTime,
+                rounds: rounds
+            })
+          );
     };
 
     return (
