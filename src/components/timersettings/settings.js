@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { useDispatch } from "react-redux";
-import { changeSettings } from "./settingsSlice"
+import { useDispatch, useSelector } from "react-redux";
+import { changeSettings, selectSettings } from "./settingsslice";
 
 import "./settings.css";
 
 const Settings = () => {
-    const [workTime, setWorkTime] = useState(25);
-    const [shortBreakTime, setShortBreakTime] = useState(5);
-    const [longBreakTime, setLongBreakTime] = useState(25);
-    const [rounds, setRounds] = useState(4);
+    const { workTime, shortBreakTime, longBreakTime, rounds } = useSelector(selectSettings);
+    const [work, setWorkTime] = useState(workTime);
+    const [shortBreak, setShortBreakTime] = useState(shortBreakTime);
+    const [longBreak, setLongBreakTime] = useState(longBreakTime);
+    const [round, setRounds] = useState(rounds);
     const dispatch = useDispatch();
 
     const handleWorkChange = (e) => {
@@ -32,10 +33,10 @@ const Settings = () => {
         e.preventDefault();
         dispatch(
             changeSettings({
-                workTime: workTime,
-                shortBreakTime: shortBreakTime,
-                longBreakTime: longBreakTime,
-                rounds: rounds
+                workTime: work,
+                shortBreakTime: shortBreak,
+                longBreakTime: longBreak,
+                rounds: round
             })
           );
     };
@@ -43,36 +44,36 @@ const Settings = () => {
     return (
         <div className="settings">
             <h1>Settings</h1>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div>
-                    <label for="work-time" className="work-time-label">Work duration: {workTime} min</label>
+                    <label for="work-time" className="work-time-label">Work duration: {work} min</label>
                     <div className="input-container">
                     <span>5 min</span>
-                    <input type="range" className="slider" min="5" max="60" id="work-time" onChange={handleWorkChange} value={workTime}/>
+                    <input type="range" className="slider" min="5" max="60" id="work-time" onChange={handleWorkChange} value={work}/>
                     <span>60 min</span>
                     </div>
                 </div>
                 <div>
-                    <label for="short-break" className="short-break-label">Short break duration: {shortBreakTime} min</label>
+                    <label for="short-break" className="short-break-label">Short break duration: {shortBreak} min</label>
                     <div className="input-container">
                     <span>1 min</span>
-                    <input type="range" className="slider" min="1" max="30" id="short-break" onChange={handleShortChange} value={shortBreakTime} />
+                    <input type="range" className="slider" min="1" max="30" id="short-break" onChange={handleShortChange} value={shortBreak} />
                     <span>30 min</span>
                     </div>
                 </div>
                 <div>
-                    <label for="long-break" className="long-break-label">Long break duration: {longBreakTime} min</label>
+                    <label for="long-break" className="long-break-label">Long break duration: {longBreak} min</label>
                     <div className="input-container">
                     <span>1 min</span>
-                    <input type="range" className="slider" min="1" max="45" id="long-break" onChange={handleLongChange} value={longBreakTime} />
+                    <input type="range" className="slider" min="1" max="45" id="long-break" onChange={handleLongChange} value={longBreak} />
                     <span>45 min</span>
                     </div>
                 </div>
                 <div>
-                    <label for="rounds" className="rounds-label">Rounds: {rounds}</label>
+                    <label for="rounds" className="rounds-label">Rounds: {round}</label>
                     <div className="input-container">
                     <span>2</span>
-                    <input type="range" className="slider" min="2" max="15" id="rounds" onChange={handleRoundChange} value={rounds} />
+                    <input type="range" className="slider" min="2" max="15" id="rounds" onChange={handleRoundChange} value={round} />
                     <span>15</span>
                     </div>
                 </div>
