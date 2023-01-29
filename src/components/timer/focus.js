@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { selectSettings } from "../timersettings/settingsslice"
+import { useSelector, useDispatch } from "react-redux";
+import { selectSettings, reduceRound } from "../timersettings/settingsslice"
 import "./timer.css";
 
-const FocusTimer = ({ start, toggleStart }) => {
+const FocusTimer = ({ start, toggleStart, changeTimer }) => {
     const settings = useSelector(selectSettings);
     const [minutes, setMinutes] = useState(settings.workTime);
     const [seconds, setSeconds] = useState(0);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         if (start) {
@@ -18,8 +19,9 @@ const FocusTimer = ({ start, toggleStart }) => {
                     if (minutes === 0) {
                         clearInterval(timer);
                         toggleStart();
+                        dispatch(reduceRound());
+                        changeTimer();
                         //notification
-                        //add 1 round
                     } else {
                         setMinutes(minutes => minutes -= 1);
                         setSeconds(seconds => seconds = 59);
