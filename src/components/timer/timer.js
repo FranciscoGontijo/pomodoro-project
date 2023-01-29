@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectSettings, reduceRound, resetRound } from "../timersettings/settingsslice";
+import { toggleStart, selectTimer } from "./timerslice";
 
 import "./timer.css";
 import toShortBreakSound from "../../assets/toShortBreakSound.wav";
@@ -13,7 +14,7 @@ import LongBreakTimer from "./longbreak";
 
 const Timer = () => {
     const settings = useSelector(selectSettings);
-    const [start, setStart] = useState(false);
+    const { start } = useSelector(selectTimer);
     const [timer, setTimer] = useState('focus');
     const [sessions, setSessions] = useState('4');
     const dispatch = useDispatch();
@@ -73,8 +74,8 @@ const Timer = () => {
         }
     };
 
-    const toggleStart = () => {
-        setStart(start => !start);
+    const toggleStartTest = () => {
+        dispatch(toggleStart());
     };
 
     return (
@@ -82,19 +83,19 @@ const Timer = () => {
             {timer === 'focus' && <FocusTimer
                 changeTimer={changeTimer}
                 start={start}
-                toggleStart={toggleStart} />}
+                toggleStart={toggleStartTest} />}
             {timer === 'short' && <ShortBreakTimer
                 changeTimer={changeTimer}
                 start={start}
-                toggleStart={toggleStart} />}
+                toggleStart={toggleStartTest} />}
             {timer === 'long' && <LongBreakTimer
                 changeTimer={changeTimer}
                 start={start}
-                toggleStart={toggleStart} />}
+                toggleStart={toggleStartTest} />}
             <button>Reset</button>
-            <button onClick={toggleStart} type="button">{start ? 'Pause' : 'Start'}</button>
+            <button onClick={toggleStartTest} type="button">{start ? 'Pause' : 'Start'}</button>
             <button onClick={handleNext}>Next</button>
-            <h1>{settings.resetRound + 1} sessions of {sessions}</h1>
+            <h1>{settings.resetRound + 1} of {sessions} sessions</h1>
         </div>
     )
 };
