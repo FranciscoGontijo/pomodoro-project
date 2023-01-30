@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectSettings, reduceRound } from "../timersettings/settingsslice"
+import { changeStatus } from "./timerslice";
+
 import "./timer.css";
 
 const FocusTimer = ({ start, toggleStart, changeTimer }) => {
@@ -11,6 +13,7 @@ const FocusTimer = ({ start, toggleStart, changeTimer }) => {
 
     useEffect(() => {
         if (start) {
+            dispatch(changeStatus('RUNNING'));
             const timer = setInterval(() => {
                 if (seconds > 0) {
                     setSeconds(seconds => seconds - 1);
@@ -33,7 +36,17 @@ const FocusTimer = ({ start, toggleStart, changeTimer }) => {
                 clearInterval(timer)
             };
         }
+
+        if (!start && minutes === settings.workTime) {
+            dispatch(changeStatus('ON_HOLD'));
+        }
+
+        if (!start && minutes < settings.workTime) {
+            dispatch(changeStatus('PAUSED'));
+        }
     });
+
+    //create a state that holds "on hold", "paused", "running"
 
     return (
         <div className="timer">
