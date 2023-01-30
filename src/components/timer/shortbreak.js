@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectSettings } from "../timersettings/settingsslice";
-import { changeStatus } from "./timerslice";
+import { selectSettings, reduceRound } from "../timersettings/settingsslice";
+import { toggleStart, changeStatus, changeTimer, selectTimer } from "./timerslice";
 
 import "./timer.css";
+import toFocusSound from "../../assets/toFocusSound.wav";
 
-const ShortBreakTimer = ({ start, toggleStart }) => {
+const ShortBreakTimer = () => {
     const settings = useSelector(selectSettings);
+    const { start } = useSelector(selectTimer);
     const [minutes, setMinutes] = useState(settings.shortBreakTime);
     const [seconds, setSeconds] = useState(0);
     const dispatch = useDispatch();
@@ -21,9 +23,9 @@ const ShortBreakTimer = ({ start, toggleStart }) => {
                 if (seconds === 0) {
                     if (minutes === 0) {
                         clearInterval(timer);
-                        toggleStart();
-                        //notification
-                        //add 1 round
+                        dispatch(changeTimer('focus'));
+                        playFocus();
+                        dispatch(toggleStart());
                     } else {
                         setMinutes(minutes => minutes -= 1);
                         setSeconds(seconds => seconds = 59);
@@ -45,12 +47,16 @@ const ShortBreakTimer = ({ start, toggleStart }) => {
         }
     });
 
+    const playFocus = () => {
+        new Audio(toFocusSound).play();
+    };
+
     return (
         <div className="timer">
             <h1>{minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
             <h3>Break</h3>
         </div>
-    )
+    );
 };
 
 export default ShortBreakTimer;
