@@ -36,3 +36,7 @@ nav ul li:hover {
 nav ul li:not(:last-child) {
     margin-bottom: 80px;
 }
+
+.disabled {
+    color: green;
+}
