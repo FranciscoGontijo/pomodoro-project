@@ -6,7 +6,8 @@ export const timerSlice = createSlice({
     initialState: {
         timer: {
             start: false,
-            status: "ON_HOLD"
+            status: "ON_HOLD",
+            title: 'focus'
         }
     },
     reducers: {
@@ -15,10 +16,13 @@ export const timerSlice = createSlice({
         },
         changeStatus: (state, action) => {
             state.timer.status = action.payload;
+        },
+        changeTimer: (state, action) => {
+            state.timer.title = action.payload;
         }
     }
 });
 
-export const { toggleStart, changeStatus } = timerSlice.actions;
+export const { toggleStart, changeStatus, changeTimer } = timerSlice.actions;
 export const selectTimer = (state) => state.timer.timer;
 export default timerSlice.reducer;
