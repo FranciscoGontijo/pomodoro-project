@@ -5,6 +5,7 @@ import { toggleStart, selectTimer, changeTimer } from "./timerslice";
 
 import "./timer.css";
 
+import Countdown from "./newTimer";
 import FocusTimer from "./focus";
 import ShortBreakTimer from "./shortbreak";
 import LongBreakTimer from "./longbreak";
@@ -44,6 +45,7 @@ const Timer = () => {
 
     return (
         <div className="timer">
+            <Countdown/>
             {title === 'focus' && <FocusTimer />}
             {title === 'short' && <ShortBreakTimer />}
             {title === 'long' && <LongBreakTimer />}
