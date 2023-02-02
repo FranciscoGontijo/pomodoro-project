@@ -10,19 +10,17 @@ const Countdown = () => {
     const [timerSeconds, setTimerSeconds] = useState(0);
     const [newDate, setNewDate] = useState(0);
     const [pausedTime, setPausedTime] = useState();
-    const [unpausedTime, setUnpausedTime] = useState();
     const dispatch = useDispatch();
 
     // interval variable to setInterval on
     let interval;
 
     // get new Date when click button. add 25 minutes, and use that number to check with date now...
-    const getDate = () => {
+    const setInitialTime = () => {
         setNewDate(new Date().getTime() + (1000 * 60 * settings.workTime));
     };
 
     const startTimer = () => {
-
         interval = setInterval(() => {
             const now = Date.now();
             const distance = newDate - now;
@@ -36,7 +34,7 @@ const Countdown = () => {
                 setTimerMinutes(minutes);
                 setTimerSeconds(seconds);
             }
-        }, 1000);
+        }, 950);
     };
 
     useEffect(() => {
@@ -82,11 +80,11 @@ const Countdown = () => {
     // paused = getTime() unpaused = getTime() difference = unpaused - paused ... add that to the distance.
 
     // const handlePause = () => {
-    //     setPausedTime(Date.now());
+    //     setPausedTime(new Date().getTime());
     // };
 
     // const handleUnpause = () => {
-    //     setUnpausedTime(Date.now());
+    //     setUnpausedTime(new Date().getTime());
     //     const diference = unpausedTime - pausedTime;
     //     setNewDate(date => date + diference);
     // };
@@ -94,44 +92,29 @@ const Countdown = () => {
     //--------------------------------------------------------------------------
     //Third way is to resolve the problem inside the handleClick funtion
 
-    // const getPausedTime = () => {
-    //     setPausedTime(new Date().getTime());
-    // };
+    const pause = () => {
+        setPausedTime(new Date().getTime());
+    };
 
-    // const getUnpausedTime = () => {
-    //     setUnpausedTime(new Date().getTime());
-    // };
-
-    // const handleUnpause = () => {
-    //     setUnpausedTime(new Date().getTime());
-    //     const diference = unpausedTime - pausedTime;
-    //     setNewDate(date => date + diference);
-    // };
-
-    // const handleClick = () => {
-    //     if (status === 'ON_HOLD') {
-    //         getDate();
-    //     }
-    //     if (status === 'RUNNING') {
-    //        getPausedTime();
-    //     }
-    //     if (status === 'PAUSED') {
-    //         getUnpausedTime();
-    //         handleUnpause();
-    //     }
-    //     dispatch(toggleStart());
-    // };
+    const unpause = () => {
+        const unpausedTime = new Date().getTime()
+        const diference = unpausedTime - pausedTime;
+        setNewDate(date => date + diference);
+    };
 
     const handleClick = () => {
         if (status === 'ON_HOLD') {
-            getDate();
+            setInitialTime();
         }
         if (status === 'RUNNING') {
+           pause();
         }
         if (status === 'PAUSED') {
+            unpause();
         }
         dispatch(toggleStart());
     };
+
 
     //Need to changeStatus in this timer
 
