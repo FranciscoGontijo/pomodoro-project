@@ -5,10 +5,9 @@ import { toggleStart, selectTimer, changeTimer } from "./timerslice";
 
 import "./timer.css";
 
-import Countdown from "./newTimer";
-import FocusTimer from "./focus";
-import ShortBreakTimer from "./shortbreak";
-import LongBreakTimer from "./longbreak";
+import CountdownFocus from "./countdownfocus";
+import CountdownShort from "./countdownshort";
+import CountdownLong from "./countdownlong";
 
 const Timer = () => {
     const settings = useSelector(selectSettings);
@@ -37,6 +36,13 @@ const Timer = () => {
         }
     };
 
+    useEffect(() => {
+        if (settings.automatic) {
+            dispatch(toggleStart());
+            toggleStarter();
+        }
+    }, [title])
+
     const toggleStarter = () => {
         dispatch(toggleStart());
     };
@@ -45,10 +51,11 @@ const Timer = () => {
 
     return (
         <div className="timer">
-            <Countdown/>
-            {title === 'focus' && <FocusTimer />}
-            {title === 'short' && <ShortBreakTimer />}
-            {title === 'long' && <LongBreakTimer />}
+
+            <h1>{title}</h1>
+            {title === 'focus' && <CountdownFocus/>}
+            {title === 'short' && <CountdownShort/>}
+            {title === 'long' && <CountdownLong/>}
             <button>Reset</button>
             <button onClick={toggleStarter} type="button">{start ? 'Pause' : 'Start'}</button>
             <button onClick={handleNext}>Next</button>
