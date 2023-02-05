@@ -6,7 +6,7 @@ import { toggleStart, changeStatus, changeTimer, selectTimer } from "./timerslic
 import toShortBreakSound from "../../assets/toShortBreakSound.wav";
 import toLongBreakSound from "../../assets/toLongBreakSound.wav";
 
-const CountdownFocus = () => {
+const CountdownFocus = ({ handleNext }) => {
     const settings = useSelector(selectSettings);
     const { start, status } = useSelector(selectTimer);
     const [timerMinutes, setTimerMinutes] = useState(settings.workTime);
@@ -14,9 +14,10 @@ const CountdownFocus = () => {
     const [newDate, setNewDate] = useState(0);
     const [pausedTime, setPausedTime] = useState();
     const dispatch = useDispatch();
-    
+
     const setInitialTime = () => {
         setNewDate(new Date().getTime() + (1000 * 60 * settings.workTime));
+
     };
 
     let interval;
@@ -114,7 +115,9 @@ const CountdownFocus = () => {
             <h1>{newDate}</h1>
             <p>{typeof newDate}</p>
             <h1>{timerMinutes < 10 ? `0${timerMinutes}` : timerMinutes}:{timerSeconds < 10 ? `0${timerSeconds}` : timerSeconds}</h1>
+            <button>Reset</button>
             <button onClick={handleClick}>{start ? 'Pause' : 'Start'}</button>
+            <button onClick={handleNext}>Next</button>
         </div>
     );
 };

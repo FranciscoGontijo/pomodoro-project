@@ -36,13 +36,6 @@ const Timer = () => {
         }
     };
 
-    useEffect(() => {
-        if (settings.automatic) {
-            dispatch(toggleStart());
-            toggleStarter();
-        }
-    }, [title])
-
     const toggleStarter = () => {
         dispatch(toggleStart());
     };
@@ -51,14 +44,10 @@ const Timer = () => {
 
     return (
         <div className="timer">
-
             <h1>{title}</h1>
-            {title === 'focus' && <CountdownFocus/>}
-            {title === 'short' && <CountdownShort/>}
-            {title === 'long' && <CountdownLong/>}
-            <button>Reset</button>
-            <button onClick={toggleStarter} type="button">{start ? 'Pause' : 'Start'}</button>
-            <button onClick={handleNext}>Next</button>
+            {title === 'focus' && <CountdownFocus handleNext={handleNext}/>}
+            {title === 'short' && <CountdownShort handleNext={handleNext}/>}
+            {title === 'long' && <CountdownLong handleNext={handleNext}/>}
             <h1>{settings.resetRound + 1} of {sessions} sessions</h1>
             <h1>{status}</h1>
         </div>
