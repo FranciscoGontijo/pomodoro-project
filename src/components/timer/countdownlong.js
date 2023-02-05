@@ -32,6 +32,9 @@ const CountdownLong = () => {
                 dispatch(resetRound());
                 dispatch(changeTimer('focus'));
                 playFocus();
+                if (!settings.automatic) {
+                    dispatch(toggleStart());
+                };
             } else {
                 setTimerMinutes(minutes);
                 setTimerSeconds(seconds);

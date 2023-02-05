@@ -8,18 +8,20 @@ export const settingsSlice = createSlice({
         shortBreakTime: 5,
         longBreakTime: 25,
         rounds: 4,
-        resetRound: 0
+        resetRound: 0,
+        automatic: false
     }
   },
   reducers: {
     changeSettings: (state, action) => {
-        const { workTime, shortBreakTime, longBreakTime, rounds } = action.payload;
+        const { workTime, shortBreakTime, longBreakTime, rounds, automatic } = action.payload;
         state.settings = {
           ...state.settings,
           workTime: +workTime,
           shortBreakTime: +shortBreakTime,
           longBreakTime: +longBreakTime,
-          rounds: +rounds
+          rounds: +rounds,
+          automatic: automatic
         };
     },
     reduceRound: (state, action) => {

@@ -31,6 +31,9 @@ const CountdownShort = () => {
                 clearInterval(interval);
                 playFocus();
                 dispatch(changeTimer('focus'));
+                if (!settings.automatic) {
+                    dispatch(toggleStart());
+                }
             } else {
                 setTimerMinutes(minutes);
                 setTimerSeconds(seconds);

@@ -1,11 +1,14 @@
 .settings {
     text-align: center;
     margin-left: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .input-container {
     height: 50px;
-    background-color: aliceblue;
+    background-color: yellowgreen;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,3 +39,45 @@
     /* 0.2 seconds transition on hover */
     transition: opacity .2s;
 }
+
+/*SWITCH AUTOMATIC INPUT*/
+.switch-container {
+    display: flex;
+    align-items: center;
+    justify-items:center;
+    background-color: aquamarine;
+    width: 350px;
+}
+
+.switch {
+    cursor: pointer;
+    margin: 1rem auto;
+    position: relative;
+    width: 50px;
+    height: 3.6px;
+    border-radius: 1.5px;
+    outline: none;
+    background-color: #d3d3d3;
+    transition: background .3s;
+}
+.switch::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    height: 1rem;
+    width: 1rem;
+    background-color: rgb(0, 136, 255);
+    transition: left .3s;
+}
+
+.switch:checked {
+    background-color: rgba(0, 162, 255, 0.706);
+}
+
+.switch:checked::after {
+    left: 70%;
+}
+

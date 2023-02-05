@@ -10,6 +10,7 @@ const Settings = () => {
     const [shortBreak, setShortBreakTime] = useState(shortBreakTime);
     const [longBreak, setLongBreakTime] = useState(longBreakTime);
     const [round, setRounds] = useState(rounds);
+    const [checked, setChecked] = useState(false);
     const dispatch = useDispatch();
 
     const handleWorkChange = (e) => {
@@ -28,6 +29,10 @@ const Settings = () => {
         setRounds(round => round = e.target.value);
     };
 
+    const handleAutomaticChange = (e) => {
+        setChecked(!checked);
+    };
+
     const handleSubmit = (e) => {
         //uptade main state
         e.preventDefault();
@@ -36,9 +41,10 @@ const Settings = () => {
                 workTime: work,
                 shortBreakTime: shortBreak,
                 longBreakTime: longBreak,
-                rounds: round
+                rounds: round,
+                automatic: checked
             })
-          );
+        );
     };
 
     return (
@@ -48,34 +54,38 @@ const Settings = () => {
                 <div>
                     <label for="work-time" className="work-time-label">Work duration: {work} min</label>
                     <div className="input-container">
-                    <span>5 min</span>
-                    <input type="range" className="slider" min="5" max="60" id="work-time" onChange={handleWorkChange} value={work}/>
-                    <span>60 min</span>
+                        <span>5 min</span>
+                        <input type="range" className="slider" min="5" max="60" id="work-time" onChange={handleWorkChange} value={work} />
+                        <span>60 min</span>
                     </div>
                 </div>
                 <div>
                     <label for="short-break" className="short-break-label">Short break duration: {shortBreak} min</label>
                     <div className="input-container">
-                    <span>1 min</span>
-                    <input type="range" className="slider" min="1" max="30" id="short-break" onChange={handleShortChange} value={shortBreak} />
-                    <span>30 min</span>
+                        <span>1 min</span>
+                        <input type="range" className="slider" min="1" max="30" id="short-break" onChange={handleShortChange} value={shortBreak} />
+                        <span>30 min</span>
                     </div>
                 </div>
                 <div>
                     <label for="long-break" className="long-break-label">Long break duration: {longBreak} min</label>
                     <div className="input-container">
-                    <span>1 min</span>
-                    <input type="range" className="slider" min="1" max="45" id="long-break" onChange={handleLongChange} value={longBreak} />
-                    <span>45 min</span>
+                        <span>1 min</span>
+                        <input type="range" className="slider" min="1" max="45" id="long-break" onChange={handleLongChange} value={longBreak} />
+                        <span>45 min</span>
                     </div>
                 </div>
                 <div>
                     <label for="rounds" className="rounds-label">Rounds: {round}</label>
                     <div className="input-container">
-                    <span>2</span>
-                    <input type="range" className="slider" min="2" max="15" id="rounds" onChange={handleRoundChange} value={round} />
-                    <span>15</span>
+                        <span>2</span>
+                        <input type="range" className="slider" min="2" max="15" id="rounds" onChange={handleRoundChange} value={round} />
+                        <span>15</span>
                     </div>
+                </div>
+                <div className='switch-container'>
+                    <label className="switch-label">Autostart: </label>
+                    <input className="switch" type="checkbox" onChange={handleAutomaticChange} checked={checked} />
                 </div>
                 <button type="submit">Save</button>
             </form>

@@ -30,21 +30,24 @@ const CountdownFocus = () => {
 
             if (distance <= 0) {
                 clearInterval(interval);
+                if (!settings.automatic) {
+                    dispatch(toggleStart());
+                };
                 if (settings.rounds > 1) {
                     dispatch(reduceRound());
                     playShort();
                     dispatch(changeTimer('short'));
 
-                }
+                };
                 if (settings.rounds === 1) {
                     playLong();
                     dispatch(changeTimer('long'));
 
-                }
+                };
             } else {
                 setTimerMinutes(minutes);
                 setTimerSeconds(seconds);
-            }
+            };
         }, 950);
     };
 
