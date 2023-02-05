@@ -11,7 +11,7 @@ import CountdownLong from "./countdownlong";
 
 const Timer = () => {
     const settings = useSelector(selectSettings);
-    const { start, status, title } = useSelector(selectTimer);
+    const { status, title } = useSelector(selectTimer);
     const [sessions, setSessions] = useState('4');
     const dispatch = useDispatch();
 
