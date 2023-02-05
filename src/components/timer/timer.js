@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectSettings, reduceRound, resetRound } from "../timersettings/settingsslice";
-import { toggleStart, selectTimer, changeTimer } from "./timerslice";
+import { selectTimer, changeTimer } from "./timerslice";
 
 import "./timer.css";
 
@@ -34,10 +34,6 @@ const Timer = () => {
             //Change to long break
             dispatch(changeTimer('long'));
         }
-    };
-
-    const toggleStarter = () => {
-        dispatch(toggleStart());
     };
 
     //Reset button to reset timer

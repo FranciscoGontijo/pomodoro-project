@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { selectSettings, reduceRound } from '../timersettings/settingsslice'
+import { selectSettings } from '../timersettings/settingsslice'
 import { toggleStart, changeStatus, changeTimer, selectTimer } from "./timerslice";
 
 import toFocusSound from "../../assets/toFocusSound.wav";
@@ -19,7 +19,7 @@ const CountdownShort = ({ handleNext }) => {
     };
 
     let interval;
-    const startTimer = () => {
+    const timer = () => {
         interval = setInterval(() => {
             const now = Date.now();
             const distance = newDate - now;
@@ -50,7 +50,7 @@ const CountdownShort = ({ handleNext }) => {
     useEffect(() => {
         if (start && newDate !== 0) {
             dispatch(changeStatus('RUNNING'));
-            startTimer();
+            timer();
             return () => {
                 clearInterval(interval);
             }
