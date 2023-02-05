@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { selectSettings, reduceRound } from '../timersettings/settingsslice'
 import { toggleStart, changeStatus, changeTimer, selectTimer } from "./timerslice";
 
+import './timer.css'
 import toShortBreakSound from "../../assets/toShortBreakSound.wav";
 import toLongBreakSound from "../../assets/toLongBreakSound.wav";
 
@@ -100,6 +101,20 @@ const CountdownFocus = ({ handleNext }) => {
         setNewDate(date => date + diference);
     };
 
+    //Reset button
+    const handleReset = (event) => {
+        if (status === 'PAUSED') {
+            //set minutes and seconds to default
+            setTimerMinutes(minutes => minutes = settings.workTime);
+            setTimerSeconds(seconds => seconds = 0);
+        }
+        if (status === 'RUNNING') {
+            dispatch(toggleStart());
+            setTimerMinutes(minutes => minutes = settings.workTime);
+            setTimerSeconds(seconds => seconds = 0);
+        }
+    };
+
     //Notifications Sounds
     const playLong = () => {
         new Audio(toLongBreakSound).play();
@@ -115,7 +130,11 @@ const CountdownFocus = ({ handleNext }) => {
             <h1>{newDate}</h1>
             <p>{typeof newDate}</p>
             <h1>{timerMinutes < 10 ? `0${timerMinutes}` : timerMinutes}:{timerSeconds < 10 ? `0${timerSeconds}` : timerSeconds}</h1>
-            <button>Reset</button>
+            <button 
+                style={status === "ON_HOLD" ? {pointerEvents: "none"} : null}
+                onClick={handleReset}
+                className={status === "ON_HOLD" ? 'disabled' : 'functioning'}
+            >Reset</button>
             <button onClick={handleClick}>{start ? 'Pause' : 'Start'}</button>
             <button onClick={handleNext}>Next</button>
         </div>

@@ -3,3 +3,7 @@
     text-align: center;
 }
 
+.disabled {
+    color: rgb(99, 99, 99);
+    background-color: rgb(177, 177, 177);
+}
