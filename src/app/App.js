@@ -9,12 +9,13 @@ import SideBar from '../components/sidebar/sidebar';
 import LabelTag from '../components/labeltag/labeltag';
 import Timer from '../components/timer/timer';
 import Settings from '../components/timersettings/settings';
+import Footer from '../components/footer/footer';
 
 function App() {
-  
+
   return (
     <>
-      <SideBar/>
+      <SideBar />
       <Routes>
         <Route path="/timer" element={
           <div>
@@ -27,6 +28,7 @@ function App() {
         } />
         <Route path="/settings" element={<Settings />} />
       </Routes>
+      <Footer />
     </>
   );
 }

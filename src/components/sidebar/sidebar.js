@@ -8,7 +8,7 @@ import "./sidebar.css"
 const SideBar = () => {
     const { status } = useSelector(selectTimer);
     return (
-        <nav>
+        <nav className="sidebar-nav">
             <img src="#" alt="logo" />  
             <ul>
                 <li><Link to="/timer"><i class="fa-regular fa-clock"></i>Timer</Link></li>
