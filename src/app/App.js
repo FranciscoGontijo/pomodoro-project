@@ -11,6 +11,9 @@ import Timer from '../components/timer/timer';
 import Settings from '../components/timersettings/settings';
 import Footer from '../components/footer/footer';
 
+//test
+import TestServer from '../components/testServer';
+
 function App() {
 
   return (
@@ -24,6 +27,7 @@ function App() {
             <Signup />
             <Login />
             <Logout />
+            <TestServer />
           </div>
         } />
         <Route path="/settings" element={<Settings />} />
