@@ -15,6 +15,7 @@ const Signup = () => {
                 console.log(err);
             };
             console.log(data);
+            //POST request to create a new user using email as unique identifier 
         });
     };
 

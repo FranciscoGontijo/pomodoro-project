@@ -1,12 +1,15 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
 import UserPool from "./UserPool";
+import { createUser } from "./userSlice"
 
 import "./login.css"
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const dispatch = useDispatch();
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -24,6 +27,9 @@ const Login = () => {
         user.authenticateUser(authDetails, {
             onSuccess: (data) => {
                 console.log('onSuccess: ', data);
+                dispatch(createUser({userEmail: email}));
+                //get stats
+                //to make requests your id is your email
             },
             onFailure: (err) => {
                 console.log('onFailure: ', err);
