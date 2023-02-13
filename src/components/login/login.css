@@ -1,9 +1,204 @@
-.logout-container {
-    margin-left: 300px;
+.login-page-container {
+    display: flex;
+    position: fixed;
+    right: 30px;
+    top: 30px;
 }
 
+/* LOGIN FORM */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    width: 200px;
+}
 
-/* JUST TESTING */
-.tester {
-    margin-left: 300px;
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 40px 30px 40px;
+    color: #b7b7b7;
+    background: rgba(60, 60, 60, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
+        0 1px 1px rgba(128, 128, 128, 0.155),
+        0 2.1px 2.1px rgba(128, 128, 128, 0.195),
+        0 4.4px 4.4px rgba(128, 128, 128, 0.241),
+        0 12px 12px rgba(128, 128, 128, 0.35);
+}
+
+.login-btn {
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    font-weight: 600;
+    margin: 0 10px;
+    width: 100px;
+    padding: 10px 0;
+    box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
+    transition: 0.4s;
+    color: rgb(104, 85, 224);
+    background-color: rgba(60, 60, 60, 0.95);
+    border: 1px solid rgba(104, 85, 224, 1);
+}
+
+.login-btn:hover {
+    color: white;
+    box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
+    background-color: rgba(104, 85, 224, 1);
+}
+
+/*TEST*/
+/* form starting stylings ------------------------------- */
+.group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+input {
+    font-size: 16px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 150px;
+    border: none;
+    border-bottom: 2px solid #b7b7b7;
+    background-color: rgba(60, 60, 60, 0);
+}
+
+input:focus {
+    outline: none;
+}
+
+/* LABEL ======================================= */
+label {
+    color: #b7b7b7;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 6px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+input:focus~label,
+input:valid~label {
+    top: -20px;
+    font-size: 14px;
+    color: rgba(104, 85, 224, 1);
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* active state */
+input:focus~.highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@-moz-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+/*CHANGE BUTTON*/
+.change-btn {
+    cursor: pointer;
+    background-color: rgba(0,0,0,0);
+    color: #b7b7b7;
+    border:none;
+    padding-top: 10px;
+    transition: 0.4s;
+}
+
+.change-btn:hover {
+    cursor: pointer;
+    background-color: rgba(0,0,0,0);
+    color: rgba(104, 85, 224, 1);
+    border: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/*SIGN IN FORM*/
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    width: 200px;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 40px 30px 40px;
+    color: #b7b7b7;
+    background: rgba(60, 60, 60, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
+        0 1px 1px rgba(128, 128, 128, 0.155),
+        0 2.1px 2.1px rgba(128, 128, 128, 0.195),
+        0 4.4px 4.4px rgba(128, 128, 128, 0.241),
+        0 12px 12px rgba(128, 128, 128, 0.35);
+}
+
+.signin-btn {
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    font-weight: 600;
+    margin: 0 10px;
+    width: 100px;
+    padding: 10px 0;
+    box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
+    transition: 0.4s;
+    color: rgb(104, 85, 224);
+    background-color: rgba(60, 60, 60, 0.95);
+    border: 1px solid rgba(104, 85, 224, 1);
 }

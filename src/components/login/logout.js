@@ -12,7 +12,8 @@ const Logout = () => {
         } else {
             console.log('No user is currently signed in');
         }
-    }
+    };
+
     return (
         <div className="logout-container">
             <button onClick={handleLogOut}>Log out</button>

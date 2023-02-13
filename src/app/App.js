@@ -27,10 +27,6 @@ function App() {
           <div>
             <LabelTag />
             <Timer />
-            <Signup />
-            <Login />
-            <Logout />
-            <TestServer />
           </div>
         } />
         <Route path="/stats" element={<Stats />} />
