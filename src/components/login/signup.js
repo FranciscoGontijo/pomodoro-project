@@ -22,9 +22,8 @@ const Signup = ({ handleChange, handleClick }) => {
                 .then(res => console.log(res.data))
                 .catch(err => console.error(err));
 
-            //login user
+            //login user not possible becuase you need to verify the email first
         });
-        
         handleClick(e);
     };
 
@@ -32,25 +31,28 @@ const Signup = ({ handleChange, handleClick }) => {
         <div className="signup-container">
             <form className="signup-form" onSubmit={onSubmit}>
                 <h2>Sign in</h2>
+                <i class="fa-solid fa-xmark x-mark-login" onClick={handleClick}></i>
             <div class="group">
                     <input 
+                        className="input"
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
                         type="text" 
                         required></input>
                         <span class="highlight"></span>
                         <span class="bar"></span>
-                        <label>Email</label>
+                        <label className="label">Email</label>
                 </div>
                 <div class="group">
                     <input 
+                        className="input"
                         value={password}
                         onChange={(event) => setPassword(event.target.value)}
                         type="text" 
                         required></input>
                         <span class="highlight"></span>
                         <span class="bar"></span>
-                        <label>Password</label>
+                        <label className="label">Password</label>
                 </div>
                 <button className="signin-btn" type="submit">Sign In</button>
                 <button className="change-btn" onClick={handleChange}>change to login</button>

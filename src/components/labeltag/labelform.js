@@ -26,13 +26,17 @@ const LabelForm = ({ handleClick }) => {
         handleClick();
     };
 
-    
-
     return (
         <div className="edit-label-container">
-            <h3>Edit label</h3><i class="fa-solid fa-xmark" onClick={handleClick}></i>
+            <h3>Edit label</h3><i class="fa-solid fa-xmark x-mark" onClick={handleClick}></i>
             <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="Label name" value={label} onChange={handleLabelChange} required />
+                <input 
+                    className="input"
+                    type="text" 
+                    placeholder="Label name" 
+                    value={label} 
+                    onChange={handleLabelChange} 
+                    required />
                 <br />
                 <select name="colors" id="colors" onChange={handleColorChange} required>
                     <option>Choose a color</option>

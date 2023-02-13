@@ -1,23 +1,36 @@
 .edit-label-container {
-    border: 1px solid black;
-    width: 350px;
-    align-self: center;
     display: flex;
     flex-direction: column;
+    align-items: center;
     position: relative;
+    width: 200px;
+    padding: 5px 10px 15px 10px;
+    color: #b7b7b7;
+    background: rgba(60, 60, 60, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
+        0 1px 1px rgba(128, 128, 128, 0.155),
+        0 2.1px 2.1px rgba(128, 128, 128, 0.195),
+        0 4.4px 4.4px rgba(128, 128, 128, 0.241),
+        0 12px 12px rgba(128, 128, 128, 0.35);
 }
 
 .edit-label-container h3 {
     align-self: flex-start;
     margin-left: 10px;
     margin-top: 0;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
-.fa-xmark {
-    background-color: blue;
-    position: absolute; 
-    right: 4px;
-    top: 4px;
-    width: fit-content;
+.x-mark {
+    cursor: pointer;
+    color: #b7b7b7;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    transition: .5s;
+}
+
+.x-mark:hover {
+    box-shadow: 0 0 20px rgba(104, 85, 224, 0.7);
 }

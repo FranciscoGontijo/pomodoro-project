@@ -57,7 +57,20 @@
     margin-bottom: 25px;
 }
 
-input {
+.x-mark-login {
+    cursor: pointer;
+    color: #b7b7b7;
+    position: absolute;
+    right: 0px;
+    top: -5px;  
+    transition: 0.5s;
+}
+
+.x-mark-login:hover {
+    box-shadow: 0 0 20px rgba(104, 85, 224, 0.7);
+}
+
+.input {
     font-size: 16px;
     padding: 10px 10px 10px 5px;
     display: block;
@@ -67,12 +80,12 @@ input {
     background-color: rgba(60, 60, 60, 0);
 }
 
-input:focus {
+.input:focus {
     outline: none;
 }
 
 /* LABEL ======================================= */
-label {
+.label {
     color: #b7b7b7;
     font-size: 18px;
     font-weight: normal;
@@ -86,8 +99,8 @@ label {
 }
 
 /* active state */
-input:focus~label,
-input:valid~label {
+.input:focus~label,
+.input:valid~label {
     top: -20px;
     font-size: 14px;
     color: rgba(104, 85, 224, 1);
@@ -105,7 +118,7 @@ input:valid~label {
 }
 
 /* active state */
-input:focus~.highlight {
+.input:focus~.highlight {
     -webkit-animation: inputHighlighter 0.3s ease;
     -moz-animation: inputHighlighter 0.3s ease;
     animation: inputHighlighter 0.3s ease;
@@ -201,4 +214,10 @@ input:focus~.highlight {
     color: rgb(104, 85, 224);
     background-color: rgba(60, 60, 60, 0.95);
     border: 1px solid rgba(104, 85, 224, 1);
+}
+
+.signin-btn:hover {
+    color: white;
+    box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
+    background-color: rgba(104, 85, 224, 1);
 }

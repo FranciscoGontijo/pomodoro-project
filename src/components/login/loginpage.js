@@ -43,22 +43,18 @@ const LoginPage = () => {
 
     return (
         <div className='login-page-container'>
-            {( choose === 'closed' && userEmail === '') && <button onClick={handleClick}>Login</button>}
-            {( choose === 'closed' && userEmail !== '') && <Logout />}
+            {(choose === 'closed' && userEmail === '') && <button onClick={handleClick}>Login</button>}
+            {(choose === 'closed' && userEmail !== '') && <Logout />}
             {choose === 'login' &&
-                <div>
-                    <i class="fa-solid fa-xmark" onClick={handleClick}></i>
-                    <Login 
-                        handleChange={handleChange}
-                        handleClick={handleClick} />
-                </div>}
+                <Login
+                    handleChange={handleChange}
+                    handleClick={handleClick} />
+            }
             {choose === 'signin' &&
-                <div>
-                    <i class="fa-solid fa-xmark" onClick={handleClick}></i>
-                    <Signup 
-                        handleChange={handleChange}
-                        handleClick={handleClick} />
-                </div>}
+                <Signup
+                    handleChange={handleChange}
+                    handleClick={handleClick} />
+            }
         </div>
     )
 };
