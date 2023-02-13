@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import axios from 'axios';
+
 
 import "./login/login.css"
 
@@ -7,14 +9,10 @@ const TestServer = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch('/post');
-            console.log(response);
-            const newData = await response.json();
-            console.log(newData);
-            setResult(newData);
-
-            //if (response. isJson()) return response
-        };
+            axios.get('/post')
+        .then(res => setResult(res.data))
+        .catch(err => console.error(err));
+        }
         fetchData();
     }, []);
 

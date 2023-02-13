@@ -1,12 +1,22 @@
+import React, { useState, useEffect } from "react";
+import UserPool from "../login/UserPool";
+
 import "./stats.css";
 
+import StatsPlaceHolder from './notlogedpage';
+import StatsPage from './statspage';
+
 const Stats = () => {
+    const user = UserPool.getCurrentUser();
+
     return (
-        <div>
-            <h1>Stats!</h1>
+        <div className="stats-container">
+            { user === null ? <StatsPlaceHolder/> : <StatsPage />}
         </div>
     )
 };
+
+export default Stats;
 
 //Stats is and requested page that appears if the user is logged in. 
 //Basicly every data/ information that we will use in this page is requested to a server and will only be answered if the user is logged in
