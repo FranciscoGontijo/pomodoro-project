@@ -13,9 +13,6 @@ import Stats from '../components/stats/stats';
 import Settings from '../components/timersettings/settings';
 import Footer from '../components/footer/footer';
 
-//test
-import TestServer from '../components/testServer';
-
 function App() {
 
   return (
@@ -25,7 +22,6 @@ function App() {
       <Routes>
         <Route path="/timer" element={
           <div>
-            <LabelTag />
             <Timer />
           </div>
         } />

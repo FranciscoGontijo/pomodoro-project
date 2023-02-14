@@ -1,3 +1,26 @@
 .footer-container {
-    margin-left: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    margin-left: 250px; 
+    margin-top:25px;
+}
+
+.footer-container p {
+    text-align: center;
+    font-weight: 500;
+}
+
+.footer-container .social-nav {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    font-size: 25px;
+    height: 40px;
+    width: 200px;
+}
+
+.fab {
+    color: rgba(104, 85, 224, 1);
 }

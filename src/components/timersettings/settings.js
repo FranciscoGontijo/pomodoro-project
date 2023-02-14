@@ -10,7 +10,7 @@ const Settings = () => {
     const [shortBreak, setShortBreakTime] = useState(shortBreakTime);
     const [longBreak, setLongBreakTime] = useState(longBreakTime);
     const [round, setRounds] = useState(rounds);
-    const [checked, setChecked] = useState(false);
+    const [checked, setChecked] = useState(true);
     const dispatch = useDispatch();
 
     const handleWorkChange = (e) => {
@@ -84,10 +84,11 @@ const Settings = () => {
                     </div>
                 </div>
                 <div className='switch-container'>
-                    <label className="switch-label">Autostart: </label>
+                    <label className="switch-label">Autostart :  {checked ? "On" : "Off"}</label>
                     <input className="switch" type="checkbox" onChange={handleAutomaticChange} checked={checked} />
+                    
                 </div>
-                <button type="submit">Save</button>
+                <button className="save-button" type="submit">Save</button>
             </form>
         </div>
     )

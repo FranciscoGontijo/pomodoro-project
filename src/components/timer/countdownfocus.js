@@ -125,18 +125,24 @@ const CountdownFocus = ({ handleNext }) => {
     };
 
     return (
-        <div>
-            <p>New Focus Timer:</p>
-            <h1>{newDate}</h1>
-            <p>{typeof newDate}</p>
-            <h1>{timerMinutes < 10 ? `0${timerMinutes}` : timerMinutes}:{timerSeconds < 10 ? `0${timerSeconds}` : timerSeconds}</h1>
-            <button 
-                style={status === "ON_HOLD" ? {pointerEvents: "none"} : null}
-                onClick={handleReset}
-                className={status === "ON_HOLD" ? 'disabled' : 'functioning'}
-            >Reset</button>
-            <button onClick={handleClick}>{start ? 'Pause' : 'Start'}</button>
-            <button onClick={handleNext}>Next</button>
+        <div className="clock-container">
+            <div className="outer-ring">
+                <div className="inner-ring">
+                    <h1 className="clock">{timerMinutes < 10 ? `0${timerMinutes}` : timerMinutes}:{timerSeconds < 10 ? `0${timerSeconds}` : timerSeconds}</h1>
+                    <h1 className="timer-label">Focus</h1>
+                </div>
+            </div>
+            <div className="buttons-container">
+                <button
+                    style={status === "ON_HOLD" ? { pointerEvents: "none" } : null}
+                    onClick={handleReset}
+                    className={status === "ON_HOLD" ? 'disabled' : 'functioning'}
+                >Reset</button>
+                <button
+                    className="round-button"
+                    onClick={handleClick}>{start ? <i className="fa-solid fa-pause"></i> : <i class="fa-solid fa-play  play-button"></i>}</button>
+                <button onClick={handleNext}>Next</button>
+            </div>
         </div>
     );
 };

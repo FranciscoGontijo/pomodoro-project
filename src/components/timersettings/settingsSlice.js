@@ -9,7 +9,7 @@ export const settingsSlice = createSlice({
         longBreakTime: 25,
         rounds: 4,
         resetRound: 0,
-        automatic: false
+        automatic: true
     }
   },
   reducers: {

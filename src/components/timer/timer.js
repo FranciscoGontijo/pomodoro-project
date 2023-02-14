@@ -5,6 +5,7 @@ import { selectTimer, changeTimer } from "./timerslice";
 
 import "./timer.css";
 
+import LabelTag from "../labeltag/labeltag";
 import CountdownFocus from "./countdownfocus";
 import CountdownShort from "./countdownshort";
 import CountdownLong from "./countdownlong";
@@ -40,12 +41,14 @@ const Timer = () => {
 
     return (
         <div className="timer">
-            <h1>{title}</h1>
-            {title === 'focus' && <CountdownFocus handleNext={handleNext}/>}
-            {title === 'short' && <CountdownShort handleNext={handleNext}/>}
-            {title === 'long' && <CountdownLong handleNext={handleNext}/>}
-            <h1>{settings.resetRound + 1} of {sessions} sessions</h1>
-            <h1>{status}</h1>
+            <LabelTag />
+            {title === 'focus' && <CountdownFocus handleNext={handleNext} />}
+            {title === 'short' && <CountdownShort handleNext={handleNext} />}
+            {title === 'long' && <CountdownLong handleNext={handleNext} />}
+            <div className="sessions-container">
+                <h3>{settings.resetRound + 1} of {sessions}</h3>
+                <h3>sessions</h3>
+            </div>
         </div>
     )
 };

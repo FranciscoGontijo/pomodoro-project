@@ -5,6 +5,16 @@
     top: 30px;
 }
 
+.initial-login-button {
+    border: 1px solid gray;
+    color: rgba(104, 85, 224, 1);
+    border-radius: 5px;
+    height: 30px;
+    width: fit-content;
+    align-self: center;
+    font-weight: 550;
+}
+
 /* LOGIN FORM */
 .login-container {
     display: flex;

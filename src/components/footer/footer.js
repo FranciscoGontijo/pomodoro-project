@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <div className="footer-container">
             <p>Made by Francisco Gontijo</p>
-            <nav className="hero-nav">  
+            <nav className="social-nav">  
                 <a href="https://www.facebook.com/tatiko.gontijo" target="_blank">
                     <i className="fab fa-facebook-f"></i>
                 </a>
