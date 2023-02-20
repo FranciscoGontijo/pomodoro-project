@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { changeLabel, addLabel } from './labeltagslice';
 import './labelform.css'
 
-const LabelForm = ({ handleClick }) => {
+const LabelForm = ({ closeDisplay }) => {
     const [label, setLabel] = useState('');
     const [color, setColor] = useState('black');
     const dispatch = useDispatch();
@@ -27,12 +27,12 @@ const LabelForm = ({ handleClick }) => {
             color: color
         }));
         setLabel('');
-        handleClick();
+        closeDisplay();
     };
 
     return (
         <div className="edit-label-container">
-            <h3>Edit label</h3><i class="fa-solid fa-xmark x-mark" onClick={handleClick}></i>
+            <h3>Edit label</h3><i class="fa-solid fa-xmark x-mark" onClick={closeDisplay}></i>
             <form onSubmit={handleSubmit}>
                 <input
                     className="input-label"

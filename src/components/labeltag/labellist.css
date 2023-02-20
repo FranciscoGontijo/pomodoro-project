@@ -1,27 +1,48 @@
 .label-list-container {
-    background-color: aqua;
+    position: fixed;
+    top: 25px;
+    min-width: 200px;
+    padding: 5px 0px 15px 0px;
+    color: #b7b7b7;
+    background: rgba(60, 60, 60, 0.95);
 }
 
 .label-list-container ul {
-    background-color: blue;
     text-decoration: none;
     padding: 0;
 }
 
-.label-list-container ul li {
+.label-list-container ul li:not(:last-child) {
+    display: grid;
+    grid-template-columns: .5fr 5fr 1fr 1fr;
+    align-items: center;
     text-decoration: none;
     list-style: none;
     margin-left: 0;
+    cursor: pointer;
+    height: 35px;
 }
 
-.label-list-container i {
-    margin-left: 3px;
-    margin-right: 3px;
+.label-list-container ul li:hover {
+    background-color: rgba(98, 98, 98, 0.95);
 }
 
 .color-display {
-    height: 5px;
-    width: 5px;
+    height: 15px;
+    width: 15px;
     border-radius: 50%;
-    background-color: brown;
+    margin-left: 10px;
+}
+
+.add-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    cursor: pointer;
+}
+
+.add-button-text {
+    margin-left: 15px;
+    padding-bottom: 2px;
 }
