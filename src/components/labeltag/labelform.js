@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { changeLabel } from './labeltagslice';
+import { changeLabel, addLabel } from './labeltagslice';
 import './labelform.css'
 
 const LabelForm = ({ handleClick }) => {
     const [label, setLabel] = useState('');
-    const [color,setColor] = useState('black');
+    const [color, setColor] = useState('black');
     const dispatch = useDispatch();
 
     const handleColorChange = (e) => {
@@ -21,7 +21,11 @@ const LabelForm = ({ handleClick }) => {
         dispatch(changeLabel({
             label: label,
             color: color
-        }))
+        }));
+        dispatch(addLabel({
+            label: label,
+            color: color
+        }));
         setLabel('');
         handleClick();
     };
@@ -30,15 +34,16 @@ const LabelForm = ({ handleClick }) => {
         <div className="edit-label-container">
             <h3>Edit label</h3><i class="fa-solid fa-xmark x-mark" onClick={handleClick}></i>
             <form onSubmit={handleSubmit}>
-                <input 
-                    className="input"
-                    type="text" 
-                    placeholder="Label name" 
-                    value={label} 
-                    onChange={handleLabelChange} 
+                <input
+                    className="input-label"
+                    type="text"
+                    value={label}
+                    onChange={handleLabelChange}
                     required />
+                <span class="highlight-label"></span>
+                <label className="label-label">Label name</label>
                 <br />
-                <select name="colors" id="colors" onChange={handleColorChange} required>
+                <select className="select-input-label" name="colors" id="colors" onChange={handleColorChange} required>
                     <option>Choose a color</option>
                     <option value="red">Red</option>
                     <option value="pink">Pink</option>
@@ -56,7 +61,7 @@ const LabelForm = ({ handleClick }) => {
                     <option value="gray">Gray</option>
                 </select>
                 <br />
-                <button type="submit">CONFIRM</button>
+                <button className="confirm-button" type="submit">CONFIRM</button>
             </form>
         </div>
     )
