@@ -16,11 +16,14 @@ export const labelTagSlice = createSlice({
         },
         addLabel: (state, action) => {
             state.labelList.push(action.payload);
+        },
+        deleteLabel: (state, action) => {
+            state.labelList.splice(action.payload, 1);
         }
     }
 });
 
-export const { changeLabel, addLabel } = labelTagSlice.actions;
+export const { changeLabel, addLabel, deleteLabel } = labelTagSlice.actions;
 export const selectLabel = (state) => state.label.label;
 export const selectLabelList = (state) => state.label.labelList;
 export default labelTagSlice.reducer;

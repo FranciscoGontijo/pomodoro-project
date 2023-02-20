@@ -14,7 +14,7 @@
 
 .label-list-container ul li:not(:last-child) {
     display: grid;
-    grid-template-columns: .5fr 5fr 1fr 1fr;
+    grid-template-columns: .5fr 6fr 1fr;
     align-items: center;
     text-decoration: none;
     list-style: none;

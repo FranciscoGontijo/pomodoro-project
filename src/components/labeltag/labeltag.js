@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { selectLabel, selectLabelList, changeLabel } from './labeltagslice';
+import { selectLabel, selectLabelList, changeLabel, deleteLabel } from './labeltagslice';
 import "./labeltag.css"
 
 import LabelForm from './labelform';
@@ -42,6 +42,13 @@ const LabelTag = () => {
         setDisplayList(false);
     };
 
+    //Delete label from the label list
+    const handleDelete = (e) => {
+        e.preventDefault();
+        const index = e.target.id;
+        dispatch(deleteLabel(index));
+    };
+
     return (
         <div className="labeltag">
             <button onClick={handleClick} style={{color: color}} className={"label-button"}>
@@ -50,6 +57,7 @@ const LabelTag = () => {
             { displayForm && <LabelForm closeDisplay={closeDisplay}/>}
             { displayList && 
             <LabelList 
+                deleteLabel={handleDelete}
                 closeDisplay={closeDisplay}
                 handleCreate={handleCreate}
                 handleSelect={handleSelect}/>}
