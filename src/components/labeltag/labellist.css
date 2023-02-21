@@ -12,19 +12,25 @@
     padding: 0;
 }
 
+.list-div {
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+    align-items: center;
+    cursor: pointer;
+}
+
+.list-div:hover {
+    background-color: rgba(98, 98, 98, 0.95);
+}
+
 .label-list-container ul li:not(:last-child) {
     display: grid;
-    grid-template-columns: .5fr 6fr 1fr;
+    grid-template-columns: 1fr 5fr;
     align-items: center;
     text-decoration: none;
     list-style: none;
     margin-left: 0;
-    cursor: pointer;
     height: 35px;
-}
-
-.label-list-container ul li:hover {
-    background-color: rgba(98, 98, 98, 0.95);
 }
 
 .color-display {

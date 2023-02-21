@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { selectLabel, selectLabelList, changeLabel, deleteLabel } from './labeltagslice';
 import "./labeltag.css"
@@ -37,16 +37,23 @@ const LabelTag = () => {
     const handleSelect = (e) => {
         e.preventDefault();
         const index = e.target.id;
-        const labelToAdd = labelList[index];
-        dispatch(changeLabel(labelToAdd));
+        const labelSelected = labelList[index];
+        dispatch(changeLabel(labelSelected));
         setDisplayList(false);
     };
 
-    //Delete label from the label list
+    //Delete label from the label list using icon
     const handleDelete = (e) => {
         e.preventDefault();
         const index = e.target.id;
         dispatch(deleteLabel(index));
+        if (labelList.length <= 1) {
+            dispatch(changeLabel({
+                label: 'ADD LABEL',
+                color: 'rgb(104, 85, 224)'
+            }));
+            setDisplayList(false);
+        }
     };
 
     return (

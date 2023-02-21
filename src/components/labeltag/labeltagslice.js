@@ -5,7 +5,7 @@ export const labelTagSlice = createSlice({
     initialState: {
         label: {
             label: 'ADD LABEL',
-            color: 'purple'
+            color: 'rgb(104, 85, 224)'
         },
         labelList: []
     },

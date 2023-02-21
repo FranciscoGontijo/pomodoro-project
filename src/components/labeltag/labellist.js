@@ -8,14 +8,13 @@ import './labellist.css'
 
 const LabelList = ({handleCreate, handleSelect, closeDisplay, deleteLabel}) => {
     const labelList = useSelector(selectLabelList);
-    const label = useSelector(selectLabel);
 
     return (
         <div className="label-list-container">
             <span>Labels</span><i class="fa-solid fa-xmark x-mark" onClick={closeDisplay}></i>
             <ul>
             {labelList.map(({ label, color }, index)=> {
-                return <li id={index} onClick={handleSelect}><span style={{backgroundColor: color}} className="color-display"></span>{label}<i onClick={deleteLabel} class="fa-solid fa-trash"></i></li>
+                return <div className="list-div"><li id={index} onClick={handleSelect}><span style={{backgroundColor: color}} className="color-display"></span>{label}</li><i id={index} onClick={deleteLabel} class="fa-solid fa-trash"></i></div>
             })}
             <li className="add-button" onClick={handleCreate}><i class="fa-solid fa-plus"></i><span className="add-button-text">Add new Label</span></li>
             </ul>
