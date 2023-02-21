@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { selectSettings, reduceRound, resetRound } from '../timersettings/settingsslice'
+import { selectSettings, resetRound } from '../timersettings/settingsslice'
 import { toggleStart, changeStatus, changeTimer, selectTimer } from "./timerslice";
 
 import "./timer.css"
-import toFocusSound from "../../assets/toFocusSound.wav";
+import toFocusSound from "../../assets/notification/toFocusSound.wav";
 
 const CountdownLong = ({ handleNext }) => {
     const settings = useSelector(selectSettings);

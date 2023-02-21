@@ -4,8 +4,8 @@ import { selectSettings, reduceRound } from '../timersettings/settingsslice'
 import { toggleStart, changeStatus, changeTimer, selectTimer } from "./timerslice";
 
 import './timer.css'
-import toShortBreakSound from "../../assets/toShortBreakSound.wav";
-import toLongBreakSound from "../../assets/toLongBreakSound.wav";
+import toShortBreakSound from "../../assets/notification/toShortBreakSound.wav";
+import toLongBreakSound from "../../assets/notification/toLongBreakSound.wav";
 
 const CountdownFocus = ({ handleNext }) => {
     const settings = useSelector(selectSettings);

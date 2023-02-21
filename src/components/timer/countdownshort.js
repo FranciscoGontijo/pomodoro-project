@@ -4,7 +4,7 @@ import { selectSettings } from '../timersettings/settingsslice'
 import { toggleStart, changeStatus, changeTimer, selectTimer } from "./timerslice";
 
 import './timer.css'
-import toFocusSound from "../../assets/toFocusSound.wav";
+import toFocusSound from "../../assets/notification/toFocusSound.wav";
 
 const CountdownShort = ({ handleNext }) => {
     const settings = useSelector(selectSettings);
