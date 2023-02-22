@@ -24,6 +24,6 @@ export const labelTagSlice = createSlice({
 });
 
 export const { changeLabel, addLabel, deleteLabel } = labelTagSlice.actions;
-export const selectLabel = (state) => state.label.label;
+export const selectCurrentLabel = (state) => state.label.label;
 export const selectLabelList = (state) => state.label.labelList;
 export default labelTagSlice.reducer;
