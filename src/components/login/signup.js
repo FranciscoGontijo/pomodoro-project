@@ -17,8 +17,8 @@ const Signup = ({ handleChange, handleClick }) => {
             };
             console.log(data);
             //POST request to create a new user using email as unique identifier 
-            //need to improve but is working at CRUD server 
-            axios.post('/', { "userId": email })
+
+            axios.post('/createnewuser', { "userEmail": email })
                 .then(res => console.log(res.data))
                 .catch(err => console.error(err));
 
