@@ -21,12 +21,11 @@ function App() {
   useEffect(() => {
     try {
       UserPool.getCurrentUser().getSession((_err, session) => {
-        const email = session.idToken.payload.email
+        const email = session.idToken.payload.email;
         if (email) {
-          console.log(email);
-          dispatch(createUser(email))
+          dispatch(createUser(email));
         } else {
-          console.error(`Email not found in session`)
+          console.error(`Email not found in session`);
         }
       })
     } catch (error) {

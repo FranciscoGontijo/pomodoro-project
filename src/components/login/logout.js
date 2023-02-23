@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { CognitoUserPool, CognitoUser } from 'amazon-cognito-identity-js';
+import React from "react";
 import UserPool from "./UserPool";
 import { useDispatch } from "react-redux";
 import { createUser } from "../../slices/userSlice";
@@ -12,7 +11,8 @@ const Logout = () => {
         const user = UserPool.getCurrentUser();
         if (user !== null) {
             user.signOut();
-            dispatch(createUser(''))
+            dispatch(createUser(''));
+            // refresh page
             console.log('User has been successfully signed out');
         } else {
             console.log('No user is currently signed in');

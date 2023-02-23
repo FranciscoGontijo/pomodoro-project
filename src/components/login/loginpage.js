@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import UserPool from "./UserPool";
 import { selectUser } from "../../slices/userSlice";
 
 import "./login.css";

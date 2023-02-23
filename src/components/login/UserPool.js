@@ -1,4 +1,4 @@
-import { CognitoUserPool, CognitoUserSession } from "amazon-cognito-identity-js";
+import { CognitoUserPool } from "amazon-cognito-identity-js";
 
 const poolData = {
     UserPoolId: 'ap-southeast-2_PSggiCVvX',

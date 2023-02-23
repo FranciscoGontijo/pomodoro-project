@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { selectCurrentLabel, selectLabelList, changeLabel, deleteLabel } from './labeltagslice';
+import { selectCurrentLabel, selectLabelList, changeLabel, deleteLabel } from '../../slices/labeltagslice';
 import "./labeltag.css"
 
 import LabelForm from './labelform';

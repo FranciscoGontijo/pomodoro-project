@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
 import UserPool from "./UserPool";
-import { createUser, defineId } from "../../slices/userSlice";
+import { createUser } from "../../slices/userSlice";
 import axios from "axios";
 
 import "./login.css";
