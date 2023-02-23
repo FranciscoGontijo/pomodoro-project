@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { selectSettings } from '../timersettings/settingsslice'
-import { toggleStart, changeStatus, changeTimer, selectTimer } from "./timerslice";
+import { selectSettings } from '../../slices/settingsslice'
+import { toggleStart, changeStatus, changeTimer, selectTimer } from "../../slices/timerslice";
 
 import './timer.css'
 import toFocusSound from "../../assets/notification/toFocusSound.wav";

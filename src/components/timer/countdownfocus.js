@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { selectSettings, reduceRound } from '../timersettings/settingsslice'
-import { toggleStart, changeStatus, changeTimer, selectTimer } from "./timerslice";
+import { selectSettings, reduceRound } from '../../slices/settingsslice'
+import { toggleStart, changeStatus, changeTimer, selectTimer } from "../../slices/timerslice";
 
 import './timer.css'
 import toShortBreakSound from "../../assets/notification/toShortBreakSound.wav";

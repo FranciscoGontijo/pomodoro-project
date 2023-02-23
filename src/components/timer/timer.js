@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectSettings, reduceRound, resetRound } from "../timersettings/settingsslice";
-import { selectTimer, changeTimer } from "./timerslice";
+import { selectSettings, reduceRound, resetRound } from "../../slices/settingsslice";
+import { selectTimer, changeTimer } from "../../slices/timerslice";
 
 import "./timer.css";
 

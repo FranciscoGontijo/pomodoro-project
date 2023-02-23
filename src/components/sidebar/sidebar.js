@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux";
-import { selectTimer } from "../timer/timerslice";
+import { selectTimer } from "../../slices/timerslice";
 
 import "./sidebar.css"
 

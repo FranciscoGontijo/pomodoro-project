@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import UserPool from "./UserPool";
-import { selectUser } from "./userSlice";
+import { selectUser } from "../../slices/userSlice";
 
 import "./login.css";
 
@@ -45,7 +45,7 @@ const LoginPage = () => {
         <div className='login-page-container'>
             {(choose === 'closed' && userEmail === '') &&
                 <button className="initial-login-button" onClick={handleClick}>
-                    <i class="fa-regular fa-user"></i> SIGN IN
+                    <i class="fa-regular fa-user"></i> LOG IN
                 </button>}
             {(choose === 'closed' && userEmail !== '') && <Logout />}
             {choose === 'login' &&
