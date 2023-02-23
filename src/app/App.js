@@ -1,19 +1,34 @@
-import logo from '../logo.svg';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 
-import Signup from '../components/login/signup'
-import Login from '../components/login/login'
-import Logout from '../components/login/logout'
 import SideBar from '../components/sidebar/sidebar';
 import LoginPage from '../components/login/loginpage';
-import LabelTag from '../components/labeltag/labeltag';
 import Timer from '../components/timer/timer';
 import Stats from '../components/stats/stats';
 import Settings from '../components/timersettings/settings';
 import Footer from '../components/footer/footer';
+import { useEffect } from 'react';
+import UserPool from '../components/login/UserPool';
+
 
 function App() {
+
+  useEffect(() => {
+    try {
+      UserPool.getCurrentUser().getSession((_err, session) => {
+        const email = session.idToken.payload.email
+        if (email) {
+          console.log({ email })
+        } else {
+          console.error(`Email not found in session`)
+        }
+      })  
+    } catch (error) {
+      console.error(error);
+    }
+    
+    
+  }, [])
 
   return (
     <>
