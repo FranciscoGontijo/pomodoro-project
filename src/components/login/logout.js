@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { CognitoUserPool, CognitoUser } from 'amazon-cognito-identity-js';
 import UserPool from "./UserPool";
+
 import './login.css'
 
 const Logout = () => {
