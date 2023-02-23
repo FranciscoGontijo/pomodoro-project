@@ -14,7 +14,6 @@ import Footer from '../components/footer/footer';
 
 //Import StyleSheet
 import './App.css';
-//Instead of just components folder, use componentes and slices folder
 
 function App() {
   const dispatch = useDispatch();
