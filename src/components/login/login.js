@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
-import UserPool from "./UserPool";
+import UserPool from "../../util/UserPool";
 import { createUser } from "../../slices/userSlice";
 import axios from "axios";
 
@@ -31,16 +31,13 @@ const Login = ({ handleChange, handleClick }) => {
 
                 dispatch(createUser({ userEmail: email }));
 
-                // axios.get('/getid', { userEmail: email })
-                //     .then((res) => console.log(res))
-                //     .catch((err) => console.error(err));
 
                 handleClick(e);
-                //get stats
-                //to make requests your id is your email
-                //close the login form
+            //get stats
+            //to make requests your id is your email
+            //close the login form
 
-            },
+        },
             onFailure: (err) => {
                 console.log('onFailure: ', err);
             },
@@ -48,40 +45,40 @@ const Login = ({ handleChange, handleClick }) => {
                 console.log('newPasswordRequired: ', data);
             }
         });
-    };
+};
 
-    return (
-        <div className="login-container">
-            <form className="login-form" onSubmit={onSubmit}>
-                <h2>Log in</h2>
-                <i class="fa-solid fa-xmark x-mark-login" onClick={handleClick}></i>
-                <div class="group">
-                    <input
-                        className="input"
-                        value={email}
-                        onChange={(event) => setEmail(event.target.value)}
-                        type="text"
-                        required></input>
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label className="label">Email</label>
-                </div>
-                <div class="group">
-                    <input
-                        className="input"
-                        value={password}
-                        onChange={(event) => setPassword(event.target.value)}
-                        type="text"
-                        required></input>
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label className="label">Password</label>
-                </div>
-                <button className="login-btn" type="submit">Login</button>
-                <button className="change-btn" onClick={handleChange}>change to signup</button>
-            </form>
-        </div>
-    )
+return (
+    <div className="login-container">
+        <form className="login-form" onSubmit={onSubmit}>
+            <h2>Log in</h2>
+            <i class="fa-solid fa-xmark x-mark-login" onClick={handleClick}></i>
+            <div class="group">
+                <input
+                    className="input"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                    type="text"
+                    required></input>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label className="label">Email</label>
+            </div>
+            <div class="group">
+                <input
+                    className="input"
+                    value={password}
+                    onChange={(event) => setPassword(event.target.value)}
+                    type="text"
+                    required></input>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label className="label">Password</label>
+            </div>
+            <button className="login-btn" type="submit">Login</button>
+            <button className="change-btn" onClick={handleChange}>change to signup</button>
+        </form>
+    </div>
+)
 };
 
 export default Login;

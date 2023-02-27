@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import UserPool from "./UserPool";
+import UserPool from "../../util/UserPool";
 import axios from "axios";
 
 import "./signup.css"

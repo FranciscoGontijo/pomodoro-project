@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../slices/userSlice";
 
@@ -10,49 +10,47 @@ import Logout from "./logout";
 
 const LoginPage = () => {
     const { userEmail } = useSelector(selectUser);
-    const [choose, setChoose] = useState('closed');
+    const [display, setDisplay] = useState('closed');
 
     //have to handle login and close the login page
     //have to change from log out button when logges out
     //have to log in directly after sign up and close the login page
-    const otherName = () => {
 
-    }
 
     const handleClick = (e) => {
         e.preventDefault();
 
-        if (choose === 'closed') {
-            setChoose('login');
+        if (display === 'closed') {
+            setDisplay('login');
         } else {
-            setChoose('closed');
+            setDisplay('closed');
         }
     };
 
     const handleChange = (e) => {
         e.preventDefault();
 
-        if (choose === 'login') {
-            setChoose('signin');
+        if (display === 'login') {
+            setDisplay('signin');
         }
-        if (choose === 'signin') {
-            setChoose('login');
+        if (display === 'signin') {
+            setDisplay('login');
         }
     };
 
     return (
         <div className='login-page-container'>
-            {(choose === 'closed' && userEmail === '') &&
+            {(display === 'closed' && userEmail === '') &&
                 <button className="initial-login-button" onClick={handleClick}>
                     <i class="fa-regular fa-user"></i> LOG IN
                 </button>}
-            {(choose === 'closed' && userEmail !== '') && <Logout />}
-            {choose === 'login' &&
+            {(display === 'closed' && userEmail !== '') && <Logout />}
+            {display === 'login' &&
                 <Login
                     handleChange={handleChange}
                     handleClick={handleClick} />
             }
-            {choose === 'signin' &&
+            {display === 'signin' &&
                 <Signup
                     handleChange={handleChange}
                     handleClick={handleClick} />

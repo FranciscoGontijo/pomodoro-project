@@ -47,7 +47,7 @@ const LabelForm = ({ closeDisplay }) => {
 
     return (
         <div className="edit-label-container">
-            <h3>Edit label</h3><i class="fa-solid fa-xmark x-mark" onClick={closeDisplay}></i>
+            <h3>Create Label</h3><i class="fa-solid fa-xmark x-mark" onClick={closeDisplay}></i>
             <form onSubmit={handleSubmit}>
                 <input
                     className="input-label"

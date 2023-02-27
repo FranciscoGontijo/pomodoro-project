@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from "react-redux";
-import UserPool from '../components/login/UserPool';
+import UserPool from '../util/UserPool';
 import { createUser } from '../slices/userSlice';
 import axios from 'axios';
 import { fullfillLabelList } from '../slices/labeltagslice'

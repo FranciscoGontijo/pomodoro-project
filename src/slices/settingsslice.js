@@ -28,13 +28,13 @@ export const settingsSlice = createSlice({
       state.settings.rounds--;
       state.settings.resetRound++;
     },
-    resetRound: (state, action) => {
+    resetRounds: (state, action) => {
       state.settings.rounds = state.settings.resetRound + 1;
       state.settings.resetRound = 0;
     }
   }
 });
 
-export const { changeSettings, reduceRound, resetRound } = settingsSlice.actions;
+export const { changeSettings, reduceRound, resetRounds } = settingsSlice.actions;
 export const selectSettings = (state) => state.settings.settings;
 export default settingsSlice.reducer;

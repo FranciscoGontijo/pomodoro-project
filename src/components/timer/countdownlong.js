@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { selectSettings, reduceRound, resetRound } from '../../slices/settingsslice'
+import { selectSettings, resetRounds } from '../../slices/settingsslice'
 import { toggleStart, changeStatus, changeTimer, selectTimer } from "../../slices/timerslice";
 
 import "./timer.css"
@@ -30,7 +30,7 @@ const CountdownLong = ({ handleNext }) => {
 
             if (distance <= 0) {
                 clearInterval(interval);
-                dispatch(resetRound());
+                dispatch(resetRounds());
                 dispatch(changeTimer('focus'));
                 playFocus();
                 if (!settings.automatic) {

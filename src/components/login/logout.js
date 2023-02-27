@@ -1,5 +1,5 @@
 import React from "react";
-import UserPool from "./UserPool";
+import UserPool from "../../util/UserPool";
 import { useDispatch } from "react-redux";
 import { createUser } from "../../slices/userSlice";
 

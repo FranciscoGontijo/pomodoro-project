@@ -1,5 +1,5 @@
 import React from "react";
-import UserPool from "../login/UserPool";
+import UserPool from "../../util/UserPool";
 
 import "./stats.css";
 
