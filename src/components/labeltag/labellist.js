@@ -1,22 +1,17 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { selectLabelList, deleteLabel, changeLabel } from "../../slices/labeltagslice";
 import { selectUser } from "../../slices/userSlice";
-import UserPool from "../login/UserPool";
+import UserPool from "../../util/UserPool";
 
 import './labellist.css'
 
-const LabelList = ({ goToForm, selectLabel, closeDisplay }) => {
+const LabelList = ({ goToForm, closeDisplay }) => {
     const labelList = useSelector(selectLabelList);
     const { userEmail } = useSelector(selectUser);
     const dispatch = useDispatch();
     const user = UserPool.getCurrentUser();
-
-
-    //If user logged in then fetch the label list from the database:
-    //Dispatch the fetched label list to labelList
-
 
     //Delete Label
     const deleteLabelFromDB = (e) => {
@@ -24,11 +19,11 @@ const LabelList = ({ goToForm, selectLabel, closeDisplay }) => {
 
         const label = e.target.id;
 
-        //Delete from redux
+        //Delete from slice
         dispatch(deleteLabel(label));
         if (labelList.length <= 1) {
             dispatch(changeLabel({
-                label: 'ADD LABEL',
+                label: 'SELECT LABEL',
                 color: 'rgb(104, 85, 224)'
             }));
             closeDisplay();
@@ -39,10 +34,19 @@ const LabelList = ({ goToForm, selectLabel, closeDisplay }) => {
             userEmail: userEmail,
             label: label
         })
-            .then(res => console.log(res))
+            .then(res => console.log(res.data))
             .catch(err => console.error(err));
-    }
+    };
 
+    //Select current label
+    const selectLabel = (e) => {
+        e.preventDefault();
+        const labelName = e.target.id;
+        const index = labelList.findIndex(labelObj => labelObj.label === labelName);
+        const labelSelected = labelList[index];
+        dispatch(changeLabel(labelSelected));
+        closeDisplay();
+    };
 
     return (
         <div className="label-list-container">
