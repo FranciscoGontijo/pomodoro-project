@@ -30,8 +30,8 @@ const Overview = () => {
                         <p>Total</p>
                     </div>
                 </div>
-                <button>Time</button>
-                <button>Sessions</button>
+                <button className="time-button">Time</button>
+                <button className="sessions-button">Sessions</button>
             </div>
         </div>
     )
