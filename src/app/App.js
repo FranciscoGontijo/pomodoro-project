@@ -4,7 +4,8 @@ import { useDispatch } from "react-redux";
 import UserPool from '../util/UserPool';
 import { createUser } from '../slices/userSlice';
 import axios from 'axios';
-import { fullfillLabelList } from '../slices/labeltagslice'
+import { fulfilLabelList } from '../slices/labeltagslice'
+import { fulfilStats } from '../slices/statsslice';
 
 //Import Main Pages
 import SideBar from '../components/sidebar/sidebar';
@@ -29,10 +30,18 @@ function App() {
           dispatch(createUser(email));
           axios.get(`/labellist/${email}`)
             .then((response) => {
-              dispatch(fullfillLabelList(response.data)); // handle success response
+              dispatch(fulfilLabelList(response.data));
             })
             .catch((error) => {
-              console.error(error); // handle error response
+              console.error(error);
+            });
+          axios.get(`/userstats/${email}`)
+            .then((response) => {
+              //console.log(response.data);
+              dispatch(fulfilStats(response.data));
+            })
+            .catch((error) => {
+              console.error(error);
             });
         } else {
           console.error(`Email not found in session`);
