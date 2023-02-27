@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { useDispatch } from "react-redux";
 import UserPool from '../components/login/UserPool';
 import { createUser } from '../slices/userSlice';
+import axios from 'axios';
+import { fullfillLabelList } from '../slices/labeltagslice'
 
 //Import Main Pages
 import SideBar from '../components/sidebar/sidebar';
@@ -17,20 +19,28 @@ import './App.css';
 
 function App() {
   const dispatch = useDispatch();
+  let email = ''
 
   useEffect(() => {
     try {
       UserPool.getCurrentUser().getSession((_err, session) => {
-        const email = session.idToken.payload.email;
+        email = session.idToken.payload.email;
         if (email) {
           dispatch(createUser(email));
+          axios.get(`/labellist/${email}`)
+            .then((response) => {
+              dispatch(fullfillLabelList(response.data)); // handle success response
+            })
+            .catch((error) => {
+              console.error(error); // handle error response
+            });
         } else {
           console.error(`Email not found in session`);
         }
       })
     } catch (error) {
-      console.error(error);
-    }
+      console.error("Email not found or user not logged in");
+    };
   }, [])
 
   return (

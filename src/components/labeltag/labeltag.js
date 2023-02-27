@@ -39,21 +39,7 @@ const LabelTag = () => {
         const index = e.target.id;
         const labelSelected = labelList[index];
         dispatch(changeLabel(labelSelected));
-        setDisplayList(false);
-    };
-
-    //Delete label from the label list using icon
-    const handleDelete = (e) => {
-        e.preventDefault();
-        const index = e.target.id;
-        dispatch(deleteLabel(index));
-        if (labelList.length <= 1) {
-            dispatch(changeLabel({
-                label: 'ADD LABEL',
-                color: 'rgb(104, 85, 224)'
-            }));
-            setDisplayList(false);
-        }
+        closeDisplay();
     };
 
     return (
@@ -64,7 +50,6 @@ const LabelTag = () => {
             { displayForm && <LabelForm closeDisplay={closeDisplay}/>}
             { displayList && 
             <LabelList 
-                deleteLabel={handleDelete}
                 closeDisplay={closeDisplay}
                 goToForm={goToForm}
                 selectLabel={selectLabel}/>}
