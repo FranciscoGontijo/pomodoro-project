@@ -1,20 +1,31 @@
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import { useSelector, useDispatch } from "react-redux";
 import { selectCurrentLabel, selectLabelList, changeLabel, deleteLabel } from './labeltagslice';
+=======
+import { useSelector } from "react-redux";
+import { selectCurrentLabel, selectLabelList } from '../../slices/labeltagslice';
+>>>>>>> newBranchTest
 import "./labeltag.css"
 
 import LabelForm from './labelform';
 import LabelList from './labellist';
 
+//Need to always keep the current label selected an not update to SELECT LABEL TAG when refresh the page...
+//If labellist.length < 0 ADD LABEL
+
 const LabelTag = () => {
     const labelList = useSelector(selectLabelList);
-    const { label, color} = useSelector(selectLabel);
+    const { label, color } = useSelector(selectCurrentLabel);
     const [displayForm, setDisplayForm] = useState(false);
     const [displayList, setDisplayList] = useState(false);
-    const dispatch = useDispatch();
 
+<<<<<<< HEAD
     //Open Label List or Label Form
     const openLabelList = () => {
+=======
+    const openDisplay = () => {
+>>>>>>> newBranchTest
         if (labelList.length > 0) {
             setDisplayList(displayList ? false : true);
         } else {
@@ -22,18 +33,22 @@ const LabelTag = () => {
         }
     };
 
-
     const closeDisplay = () => {
         setDisplayForm(false);
         setDisplayList(false);
     }
 
     //Show LabelForm instead of LabelList
+<<<<<<< HEAD
     const openLabelForm = () => {
+=======
+    const goToForm = () => {
+>>>>>>> newBranchTest
         setDisplayForm(true);
         setDisplayList(false);
     };
 
+<<<<<<< HEAD
     //Select label to be the current one
     const selectLabel = (e) => {
         e.preventDefault();
@@ -69,6 +84,19 @@ const LabelTag = () => {
                 closeDisplay={closeDisplay}
                 openForm={openLabelForm}
                 selectLabel={selectLabel}/>}
+=======
+    return (
+        <div className="labeltag">
+            <button onClick={openDisplay} style={{ color: color }} className={"label-button"}>
+                <i className={"fa-solid fa-tag " + color}></i> {labelList.length > 0 ? label : "ADD LABEL"}
+            </button>
+            {displayForm && <LabelForm closeDisplay={closeDisplay} />}
+            {displayList &&
+                <LabelList
+                    closeDisplay={closeDisplay}
+                    goToForm={goToForm}
+                />}
+>>>>>>> newBranchTest
         </div>
     )
 };

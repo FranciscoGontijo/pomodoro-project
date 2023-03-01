@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { changeSettings, selectSettings } from "./settingsslice";
+import { changeSettings, selectSettings } from "../../slices/settingsslice";
 
 import "./settings.css";
 

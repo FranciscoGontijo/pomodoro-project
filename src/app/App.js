@@ -1,19 +1,56 @@
-import logo from '../logo.svg';
-import './App.css';
 import { Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch } from "react-redux";
+import UserPool from '../util/UserPool';
+import { createUser } from '../slices/userSlice';
+import axios from 'axios';
+import { fulfilLabelList } from '../slices/labeltagslice'
+import { fulfilStats } from '../slices/statsslice';
 
-import Signup from '../components/login/signup'
-import Login from '../components/login/login'
-import Logout from '../components/login/logout'
+//Import Main Pages
 import SideBar from '../components/sidebar/sidebar';
 import LoginPage from '../components/login/loginpage';
-import LabelTag from '../components/labeltag/labeltag';
 import Timer from '../components/timer/timer';
 import Stats from '../components/stats/stats';
 import Settings from '../components/timersettings/settings';
 import Footer from '../components/footer/footer';
 
+//Import StyleSheet
+import './App.css';
+
 function App() {
+  const dispatch = useDispatch();
+  let email = ''
+
+  useEffect(() => {
+    try {
+      UserPool.getCurrentUser().getSession((_err, session) => {
+        email = session.idToken.payload.email;
+        if (email) {
+          dispatch(createUser(email));
+          axios.get(`/labellist/${email}`)
+            .then((response) => {
+              dispatch(fulfilLabelList(response.data));
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+          axios.get(`/userstats/${email}`)
+            .then((response) => {
+              //console.log(response.data);
+              dispatch(fulfilStats(response.data));
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+        } else {
+          console.error(`Email not found in session`);
+        }
+      })
+    } catch (error) {
+      console.error("Email not found or user not logged in");
+    };
+  }, [])
 
   return (
     <>

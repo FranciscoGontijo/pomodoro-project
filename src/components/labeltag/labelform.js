@@ -1,11 +1,16 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { changeLabel, addLabel } from './labeltagslice';
-import './labelform.css'
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import { changeLabel, addLabel } from '../../slices/labeltagslice';
+import { selectUser } from "../../slices/userSlice"
+
+
+import './labelform.css';
 
 const LabelForm = ({ closeDisplay }) => {
     const [label, setLabel] = useState('');
     const [color, setColor] = useState('black');
+    const { userEmail } = useSelector(selectUser);
     const dispatch = useDispatch();
 
     const handleColorChange = (e) => {
@@ -26,13 +31,23 @@ const LabelForm = ({ closeDisplay }) => {
             label: label,
             color: color
         }));
+        axios.put('/addlabel', {
+            label: label,
+            color: color,
+            userEmail: userEmail
+        })
+            .then(res => console.log(res.data))
+            .catch(err => console.error(err));
         setLabel('');
         closeDisplay();
     };
 
+    //Add label to the database
+
+
     return (
         <div className="edit-label-container">
-            <h3>Edit label</h3><i class="fa-solid fa-xmark x-mark" onClick={closeDisplay}></i>
+            <h3>Create Label</h3><i class="fa-solid fa-xmark x-mark" onClick={closeDisplay}></i>
             <form onSubmit={handleSubmit}>
                 <input
                     className="input-label"

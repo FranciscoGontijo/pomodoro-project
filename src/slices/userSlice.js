@@ -9,7 +9,7 @@ export const userSlice = createSlice({
     },
     reducers: {
         createUser: (state, action) => {
-            state.user.userEmail = action.payload.userEmail;
+            state.user.userEmail = action.payload;
         }
     }
 });

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import UserPool from "../login/UserPool";
+import React from "react";
+import UserPool from "../../util/UserPool";
 
 import "./stats.css";
 

@@ -1,11 +1,61 @@
 import React from "react";
+<<<<<<< HEAD
 import { useSelector } from "react-redux";
 import { selectLabelList } from "./labeltagslice";
 
 import './labellist.css'
 
 const LabelList = ({ openForm, selectLabel, closeDisplay, deleteLabel }) => {
+=======
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import { selectLabelList, deleteLabel, changeLabel } from "../../slices/labeltagslice";
+import { selectUser } from "../../slices/userSlice";
+import UserPool from "../../util/UserPool";
+
+import './labellist.css'
+
+const LabelList = ({ goToForm, closeDisplay }) => {
+>>>>>>> newBranchTest
     const labelList = useSelector(selectLabelList);
+    const { userEmail } = useSelector(selectUser);
+    const dispatch = useDispatch();
+    const user = UserPool.getCurrentUser();
+
+    //Delete Label
+    const deleteLabelFromDB = (e) => {
+        e.preventDefault();
+
+        const label = e.target.id;
+
+        //Delete from slice
+        dispatch(deleteLabel(label));
+        if (labelList.length <= 1) {
+            dispatch(changeLabel({
+                label: 'SELECT LABEL',
+                color: 'rgb(104, 85, 224)'
+            }));
+            closeDisplay();
+        }
+
+        //Delete from database
+        axios.put('/deletelabel', {
+            userEmail: userEmail,
+            label: label
+        })
+            .then(res => console.log(res.data))
+            .catch(err => console.error(err));
+    };
+
+    //Select current label
+    const selectLabel = (e) => {
+        e.preventDefault();
+        const labelName = e.target.id;
+        const index = labelList.findIndex(labelObj => labelObj.label === labelName);
+        const labelSelected = labelList[index];
+        dispatch(changeLabel(labelSelected));
+        closeDisplay();
+    };
 
     return (
         <div className="label-list-container">
@@ -13,6 +63,7 @@ const LabelList = ({ openForm, selectLabel, closeDisplay, deleteLabel }) => {
             <ul>
                 {labelList.map(({ label, color }, index) => {
                     return <div className="list-div">
+<<<<<<< HEAD
                         <li id={index} onClick={selectLabel}>
                             <span style={{ backgroundColor: color }} className="color-display"></span>
                             {label}
@@ -21,6 +72,16 @@ const LabelList = ({ openForm, selectLabel, closeDisplay, deleteLabel }) => {
                     </div>
                 })}
                 <li className="add-button" onClick={openForm}><i class="fa-solid fa-plus"></i><span className="add-button-text">Add new Label</span></li>
+=======
+                        <li key={index} id={label} onClick={selectLabel}>
+                            <span style={{ backgroundColor: color }} className="color-display"></span>
+                            {label}
+                        </li>
+                        <i id={label} onClick={deleteLabelFromDB} class="fa-solid fa-trash"></i>
+                    </div>
+                })}
+                <li className="add-button" onClick={goToForm}><i class="fa-solid fa-plus"></i><span className="add-button-text">Add new Label</span></li>
+>>>>>>> newBranchTest
             </ul>
         </div>
     )

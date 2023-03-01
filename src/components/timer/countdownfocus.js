@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { selectSettings, reduceRound } from '../timersettings/settingsslice'
-import { toggleStart, changeStatus, changeTimer, selectTimer } from "./timerslice";
+import { selectSettings, reduceRound } from '../../slices/settingsslice'
+import { toggleStart, changeStatus, changeTimer, selectTimer } from "../../slices/timerslice";
+import { selectCurrentLabel } from '../../slices/labeltagslice';
+import { selectUser } from '../../slices/userSlice';
 
 import './timer.css'
 import toShortBreakSound from "../../assets/notification/toShortBreakSound.wav";
@@ -10,6 +12,8 @@ import toLongBreakSound from "../../assets/notification/toLongBreakSound.wav";
 const CountdownFocus = ({ handleNext }) => {
     const settings = useSelector(selectSettings);
     const { start, status } = useSelector(selectTimer);
+    const { label, color } = useSelector(selectCurrentLabel);
+    const { userEmail } = useSelector(selectUser);
     const [timerMinutes, setTimerMinutes] = useState(settings.workTime);
     const [timerSeconds, setTimerSeconds] = useState(0);
     const [newDate, setNewDate] = useState(0);
@@ -32,6 +36,23 @@ const CountdownFocus = ({ handleNext }) => {
 
             if (distance <= 0) {
                 clearInterval(interval);
+                //axios to send the round to DB
+                //new Date is getting the wrong date
+                const date = new Date().toISOString().split('T')[0];
+                const roundTime = settings.workTime;
+                axios.put('addround', {
+                    userEmail: userEmail,
+                    date: date,
+                    roundTime: roundTime,
+                    label: label
+                })
+                    .then((response) => {
+                        console.log(response);
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                    })
+
                 if (!settings.automatic) {
                     dispatch(toggleStart());
                 };
@@ -39,12 +60,10 @@ const CountdownFocus = ({ handleNext }) => {
                     dispatch(reduceRound());
                     playShort();
                     dispatch(changeTimer('short'));
-
                 };
                 if (settings.rounds === 1) {
                     playLong();
                     dispatch(changeTimer('long'));
-
                 };
             } else {
                 setTimerMinutes(minutes);

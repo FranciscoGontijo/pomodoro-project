@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
-import UserPool from "./UserPool";
-import { createUser } from "./userSlice"
+import UserPool from "../../util/UserPool";
+import { createUser } from "../../slices/userSlice";
+import { fulfilLabelList } from "../../slices/labeltagslice";
+import { fulfilStats } from "../../slices/statsslice";
+import axios from "axios";
 
 import "./login.css";
 
@@ -27,9 +30,26 @@ const Login = ({ handleChange, handleClick }) => {
         user.authenticateUser(authDetails, {
             onSuccess: (data) => {
                 console.log('onSuccess: ', data);
+
                 dispatch(createUser({ userEmail: email }));
+
+
                 handleClick(e);
                 //get stats
+                axios.get(`/userstats/${email}`)
+                    .then((response) => {
+                        dispatch(fulfilStats(response.data));
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                    });
+                axios.get(`/labellist/${email}`)
+                    .then((response) => {
+                        dispatch(fulfilLabelList(response.data));
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                    });
                 //to make requests your id is your email
                 //close the login form
 
@@ -49,26 +69,26 @@ const Login = ({ handleChange, handleClick }) => {
                 <h2>Log in</h2>
                 <i class="fa-solid fa-xmark x-mark-login" onClick={handleClick}></i>
                 <div class="group">
-                    <input 
+                    <input
                         className="input"
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
-                        type="text" 
+                        type="text"
                         required></input>
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
-                        <label className="label">Email</label>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label className="label">Email</label>
                 </div>
                 <div class="group">
-                    <input 
+                    <input
                         className="input"
                         value={password}
                         onChange={(event) => setPassword(event.target.value)}
-                        type="text" 
+                        type="text"
                         required></input>
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
-                        <label className="label">Password</label>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label className="label">Password</label>
                 </div>
                 <button className="login-btn" type="submit">Login</button>
                 <button className="change-btn" onClick={handleChange}>change to signup</button>
