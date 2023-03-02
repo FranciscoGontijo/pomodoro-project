@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+
+import { selectDateStats } from "../../slices/statsslice";
 
 import './stats.css'
 
 const Overview = () => {
+    const dateStats = useSelector(selectDateStats);
+    const [total, setTotal] = useState(0);
+
+    const getTotalTime = () => {
+        let totalTime = 0;
+        dateStats.forEach(object => {
+            totalTime += object.roundTime * object.rounds
+        });
+        return totalTime
+    };
+
+    //get monthly stats
+
+    //get weekly stats
+
+    //get daily stats
+
+    useEffect(() => {
+        setTotal(total => total = getTotalTime());
+    }, [dateStats])
+
 
     return (
         <div>
@@ -26,11 +50,11 @@ const Overview = () => {
                     </div>
                     <div className="time-stats">
                         <i class="fa-solid fa-equals"></i>
-                        <h2>time</h2>
+                        <h2>{total}</h2>
                         <p>Total</p>
                     </div>
                 </div>
-                <button className="time-button">Time</button>
+                <button onClick={() => console.log(dateStats)} className="time-button">Time</button>
                 <button className="sessions-button">Sessions</button>
             </div>
         </div>

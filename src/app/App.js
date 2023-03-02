@@ -5,7 +5,7 @@ import UserPool from '../util/UserPool';
 import { createUser } from '../slices/userSlice';
 import axios from 'axios';
 import { fulfilLabelList } from '../slices/labeltagslice'
-import { fulfilStats } from '../slices/statsslice';
+import { fulfilDateStats, fulfilLabelStats } from '../slices/statsslice';
 
 //Import Main Pages
 import SideBar from '../components/sidebar/sidebar';
@@ -37,8 +37,8 @@ function App() {
             });
           axios.get(`/userstats/${email}`)
             .then((response) => {
-              //console.log(response.data);
-              dispatch(fulfilStats(response.data));
+              dispatch(fulfilDateStats(response.data.dateStats));
+              dispatch(fulfilLabelStats(response.data.labelStats));
             })
             .catch((error) => {
               console.error(error);
@@ -50,7 +50,7 @@ function App() {
     } catch (error) {
       console.error("Email not found or user not logged in");
     };
-  }, [])
+  }, []);
 
   return (
     <>

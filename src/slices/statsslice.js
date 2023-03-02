@@ -7,14 +7,14 @@ export const statsSlice = createSlice({
         labelStats: []
     },
     reducers: {
-        fulfilStats: (state, action) => {
-            if (action.payload.dateStats.length > 0) {
-                console.log(action.payload.dateStats);
-                state.stats.dateStats = action.payload.dateStats;
+        fulfilDateStats: (state, action) => {
+            if (action.payload.length > 0) {
+                state.dateStats = action.payload;
             }
-            if (action.payload.labelStats.length > 0) {
-                console.log(action.payload.labelStats);
-                state.stats.labelStats = action.payload.labelStats;
+        },
+        fulfilLabelStats: (state, action) => {
+            if (action.payload.length > 0) {
+                state.labelStats = action.payload;
             }
         },
         resetStats: (state, action) => {
@@ -26,8 +26,8 @@ export const statsSlice = createSlice({
     }
 });
 
-export const { fulfilStats, resetStats } = statsSlice.actions;
-export const selectStats = (state) => state.stats.stats;
+export const { fulfilDateStats, fulfilLabelStats, resetStats } = statsSlice.actions;
+export const selectDateStats = (state) => state.stats.dateStats;
 export default statsSlice.reducer;
 
 //TypeError: Cannot set properties of undefined: I think it is because of the dates property with an empty array...
