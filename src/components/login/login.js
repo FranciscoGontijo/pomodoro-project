@@ -4,7 +4,7 @@ import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
 import UserPool from "../../util/UserPool";
 import { createUser } from "../../slices/userSlice";
 import { fulfilLabelList } from "../../slices/labeltagslice";
-import { fulfilStats } from "../../slices/statsslice";
+import { fulfilDateStats } from "../../slices/statsslice";
 import axios from "axios";
 
 import "./login.css";
@@ -38,7 +38,7 @@ const Login = ({ handleChange, handleClick }) => {
                 //get stats
                 axios.get(`/userstats/${email}`)
                     .then((response) => {
-                        dispatch(fulfilStats(response.data));
+                        dispatch(fulfilDateStats(response.data));
                     })
                     .catch((error) => {
                         console.error(error);
