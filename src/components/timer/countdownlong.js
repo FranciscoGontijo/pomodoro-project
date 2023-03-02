@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-<<<<<<< HEAD
-import { selectSettings, resetRound } from '../timersettings/settingsslice'
-import { toggleStart, changeStatus, changeTimer, selectTimer } from "./timerslice";
-=======
 import { selectSettings, resetRounds } from '../../slices/settingsslice'
 import { toggleStart, changeStatus, changeTimer, selectTimer } from "../../slices/timerslice";
->>>>>>> newBranchTest
 
 import "./timer.css"
 import toFocusSound from "../../assets/notification/toFocusSound.wav";

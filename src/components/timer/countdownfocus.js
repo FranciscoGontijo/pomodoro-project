@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
+import moment from 'moment';
+import axios from 'axios';
+
 import { selectSettings, reduceRound } from '../../slices/settingsslice'
 import { toggleStart, changeStatus, changeTimer, selectTimer } from "../../slices/timerslice";
 import { selectCurrentLabel } from '../../slices/labeltagslice';
 import { selectUser } from '../../slices/userSlice';
 
 import './timer.css'
+
 import toShortBreakSound from "../../assets/notification/toShortBreakSound.wav";
 import toLongBreakSound from "../../assets/notification/toLongBreakSound.wav";
 
@@ -22,7 +26,6 @@ const CountdownFocus = ({ handleNext }) => {
 
     const setInitialTime = () => {
         setNewDate(new Date().getTime() + (1000 * 60 * settings.workTime));
-
     };
 
     let interval;
@@ -38,21 +41,24 @@ const CountdownFocus = ({ handleNext }) => {
                 clearInterval(interval);
                 //axios to send the round to DB
                 //new Date is getting the wrong date
-                const date = new Date().toISOString().split('T')[0];
+                const now = moment();
+                const date = now.format('YYYY-MM-DD');
+                const weekDay = now.format('dddd');
                 const roundTime = settings.workTime;
+
                 axios.put('addround', {
                     userEmail: userEmail,
                     date: date,
                     roundTime: roundTime,
-                    label: label
+                    label: label,
+                    weekDay: weekDay
                 })
                     .then((response) => {
                         console.log(response);
                     })
                     .catch((error) => {
                         console.error(error);
-                    })
-
+                    });
                 if (!settings.automatic) {
                     dispatch(toggleStart());
                 };
