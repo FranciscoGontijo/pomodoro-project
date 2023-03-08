@@ -127,7 +127,7 @@ const CountdownFocus = ({ handleNext }) => {
     };
 
     //Reset button
-    const handleReset = (event) => {
+    const handleReset = () => {
         if (status === 'PAUSED') {
             //set minutes and seconds to default
             setTimerMinutes(minutes => minutes = settings.workTime);

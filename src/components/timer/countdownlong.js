@@ -92,15 +92,15 @@ const CountdownLong = ({ handleNext }) => {
     };
 
     //Reset button
-    const handleReset = (event) => {
+    const handleReset = () => {
         if (status === 'PAUSED') {
             //set minutes and seconds to default
-            setTimerMinutes(minutes => minutes = settings.workTime);
+            setTimerMinutes(minutes => minutes = settings.longBreakTime);
             setTimerSeconds(seconds => seconds = 0);
         }
         if (status === 'RUNNING') {
             dispatch(toggleStart());
-            setTimerMinutes(minutes => minutes = settings.workTime);
+            setTimerMinutes(minutes => minutes = settings.longBreakTime);
             setTimerSeconds(seconds => seconds = 0);
         }
     };
