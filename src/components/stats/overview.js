@@ -73,7 +73,6 @@ const Overview = () => {
 
 
     return (
-        <div>
             <div className="overview-container">
                 <h1>Overview</h1>
                 <div className="overview-stats-container">
@@ -101,7 +100,6 @@ const Overview = () => {
                 <button onClick={() => console.log(dateStats)} className="time-button">Time</button>
                 <button className="sessions-button">Sessions</button>
             </div>
-        </div>
     )
 };
 
