@@ -33,7 +33,7 @@
     color: black;
 }
 
-.sidebar-nav ul li:hover {
+.functioning-nav-link:hover {
     background-color: rgb(205, 205, 205);
 
 }
@@ -42,6 +42,10 @@
     margin-bottom: 80px;
 }
 
-.disabled {
-    color: green;
+.disabled-nav-link .link {
+    color:rgb(205, 205, 205);
+}
+
+.disabled-nav-link .link i {
+    color: rgb(205, 205, 205);
 }
