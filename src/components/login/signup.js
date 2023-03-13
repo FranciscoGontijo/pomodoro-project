@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import UserPool from "../../util/UserPool";
 import axios from "axios";
 
-import "./signup.css"
+import "./login.css"
 
 const Signup = ({ handleChange, handleClick }) => {
     const [email, setEmail] = useState("");
@@ -48,7 +48,7 @@ const Signup = ({ handleChange, handleClick }) => {
                         className="input"
                         value={password}
                         onChange={(event) => setPassword(event.target.value)}
-                        type="text" 
+                        type="password" 
                         required></input>
                         <span class="highlight"></span>
                         <span class="bar"></span>

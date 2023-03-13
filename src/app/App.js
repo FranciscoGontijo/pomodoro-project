@@ -1,13 +1,15 @@
 import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from "react-redux";
+
 import UserPool from '../util/UserPool';
-import { createUser } from '../slices/userSlice';
 import axios from 'axios';
+
+import { createUser } from '../slices/userSlice';
 import { fulfilLabelList } from '../slices/labeltagslice'
 import { fulfilDateStats, fulfilLabelStats } from '../slices/statsslice';
 
-//Import Main Pages
+//Import Main Components
 import SideBar from '../components/sidebar/sidebar';
 import LoginPage from '../components/login/loginpage';
 import Timer from '../components/timer/timer';
@@ -20,6 +22,7 @@ import './App.css';
 
 function App() {
   const dispatch = useDispatch();
+
   let email = ''
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 .login-page-container {
     display: flex;
-    position: fixed;
+    position: absolute;
     right: 30px;
     top: 30px;
 }

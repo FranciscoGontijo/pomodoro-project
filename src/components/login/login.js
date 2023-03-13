@@ -84,7 +84,7 @@ const Login = ({ handleChange, handleClick }) => {
                         className="input"
                         value={password}
                         onChange={(event) => setPassword(event.target.value)}
-                        type="text"
+                        type="password"
                         required></input>
                     <span class="highlight"></span>
                     <span class="bar"></span>
