@@ -118,13 +118,17 @@ const CountdownShort = ({ handleNext }) => {
                 </div>
             </div>
             <div className="buttons-container">
-            <button
-                style={status === "ON_HOLD" ? { pointerEvents: "none" } : null}
-                onClick={handleReset}
-                className={status === "ON_HOLD" ? 'disabled' : 'functioning'}
-            >Reset</button>
-            <button onClick={handleClick}>{start ? 'Pause' : 'Start'}</button>
-            <button onClick={handleNext}>Next</button>
+                <button
+                    style={status === "ON_HOLD" ? { pointerEvents: "none" } : null}
+                    onClick={handleReset}
+                    className={status === "ON_HOLD" ? 'disabled-reset-button reset-button' : 'reset-button'}
+                ><i class="fa-solid fa-rotate-left"></i></button>
+                <button
+                    className={start ? "pause-button" : "play-button"} 
+                    onClick={handleClick}>{start ? <i className="fa-solid fa-pause"></i> : <i class="fa-solid fa-play"></i>}</button>
+                <button 
+                    className='next-button'
+                    onClick={handleNext}><i class="fa-solid fa-forward-step"></i></button>
             </div>
         </div>
     );

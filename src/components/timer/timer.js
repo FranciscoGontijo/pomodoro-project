@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectSettings, reduceRound } from "../../slices/settingsslice";
+import { selectSettings, reduceRound, resetRounds } from "../../slices/settingsslice";
 import { selectTimer, changeTimer } from "../../slices/timerslice";
 
 import "./timer.css";
@@ -23,7 +23,7 @@ const Timer = () => {
             //Change to focus
             dispatch(changeTimer('focus'));
             if (title === 'long') {
-                dispatch(resetRound());
+                dispatch(resetRounds());
             }
         }
         if (rounds > 1 && title === 'focus') {
