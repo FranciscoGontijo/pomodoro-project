@@ -8,8 +8,41 @@
     border-right: 1px solid rgba(97, 97, 97, 0.351);
 }
 
-.sidebar-nav .logo {
-    height: 150px;
+.logo-container {
+    display: grid;
+    align-items: end;
+    grid-template-columns: .6fr 2fr;
+    grid-template-rows: 45px 30px;
+    grid-template-areas:
+        "logo title";
+    margin: 50px 0 70px 10px;
+}
+
+.logo-container .logo {
+    height: 70px;
+    width: 70px;
+    grid-area: logo;
+}
+
+.logo-title-container {
+    grid-area: title;
+    display: flex;
+    align-items: baseline;
+}
+
+.logo-container h2 {
+    font-family: sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    margin: 0;
+    color: rgb(103, 7, 7)
+}
+
+.logo-container span {
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+    margin: 0;
 }
 
 .sidebar-nav .link {
@@ -43,7 +76,7 @@
 }
 
 .disabled-nav-link .link {
-    color:rgb(205, 205, 205);
+    color: rgb(205, 205, 205);
 }
 
 .disabled-nav-link .link i {

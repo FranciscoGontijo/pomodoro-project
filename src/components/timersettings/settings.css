@@ -88,12 +88,12 @@
     padding: 8px 0;
     box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
     transition: 0.4s;
-    color: rgb(104, 85, 224);
-    border: 1px solid rgba(104, 85, 224, 1);
+    color: rgb(72, 4, 4);
+    border: 1px solid rgb(72, 4, 4);
 }
 
 .save-button:hover {
     color: white;
-    box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
-    background-color: rgba(104, 85, 224, 1);
+    box-shadow: 0 0 20px rgba(72, 4, 4, 0.6);
+    background-color: rgb(72, 4, 4);
 }
