@@ -28,6 +28,7 @@ export const statsSlice = createSlice({
 
 export const { fulfilDateStats, fulfilLabelStats, resetStats } = statsSlice.actions;
 export const selectDateStats = (state) => state.stats.dateStats;
+export const selectLabelStats = (state) => state.stats.labelStats;
 export default statsSlice.reducer;
 
 //TypeError: Cannot set properties of undefined: I think it is because of the dates property with an empty array...

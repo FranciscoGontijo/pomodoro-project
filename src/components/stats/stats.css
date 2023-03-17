@@ -1,5 +1,4 @@
 .stats-page-container {
-    background-color: aquamarine;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
@@ -71,47 +70,20 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     column-gap: 20px;
-    align-content: space-between;
     border: 1px solid;
     background-color: rgb(40, 40, 40);
     border-radius: 10px;
     padding: 20px;
     color: #b7b7b7;
     grid-template-areas:
-        "header header"
-        "graph graph"
-        "buttons buttons";
+        "header"
+        "graph";
 }
 
 .overview-header {
     grid-area: header;
     height: 45px;
-}
-
-.week-ul {
-    list-style: none;
-    background-color: blueviolet;
-    padding: 0;
-    grid-area: days;
-}
-
-.week-ul li {
-    display: grid;
-    grid-template-columns: .4fr 1fr;
-    align-items: center;
-    text-decoration: none;
-    list-style: none;
-    margin-left: 0;
-    margin-top: 3px;
-    height: 25px;
-}
-
-.square-color-display {
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin: 0;
 }
 
 .graph-container {
@@ -122,19 +94,15 @@
     align-content: center;
     justify-self: center;
     justify-content: center;
+    margin: 20px 0px;
 }
 
-.stats-buttons-container {
-    grid-area: buttons;
-}
-
-/*LABELS GRAPH SECTION*/
+/*LABELS CHART SECTION*/
 .labels-stats-outer-container {
     grid-area: labelgraph;
     display: grid;
-    grid-template-columns: .5fr 1fr;
+    grid-template-columns: 1fr;
     grid-template-rows: auto;
-    align-content: space-between;
     column-gap: 20px;
     border: 1px solid;
     background-color: rgb(40, 40, 40);
@@ -142,40 +110,25 @@
     padding: 20px;
     color: #b7b7b7;
     grid-template-areas:
-        "header header"
-        "labels graph"
-        "buttons buttons";
+        "header"
+        "graph";
 }
 
 .label-stats-header {
     grid-area: header;
-    background-color: aliceblue;
     height: 45px;
-}
-
-.labels-ul {
-    list-style: none;
-    background-color: blueviolet;
-    padding: 0;
-    grid-area: labels;
-    height: fit-content;
-    border: 1px solid white;
-}
-
-.labels-ul li {
-    display: grid;
-    grid-template-columns: .4fr 1fr;
-    align-items: center;
-    text-decoration: none;
-    list-style: none;
-    margin-left: 0;
-    margin-top: 3px;
-    height: fit-content;
+    margin: 0;
 }
 
 .label-graph-container {
     grid-area: graph;
-    border: 1px solid white;
+    height: 300px;
+    width: 400px;
+    display: flex;
+    align-content: center;
+    justify-self: center;
+    justify-content: center;
+    margin: 20px 0px;
 }
 
 /* CHARTS SECTION */

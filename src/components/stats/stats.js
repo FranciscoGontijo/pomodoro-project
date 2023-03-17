@@ -3,7 +3,7 @@ import UserPool from "../../util/UserPool";
 
 import "./stats.css";
 
-import StatsPlaceHolder from './notlogedpage';
+import StatsPlaceHolder from './statsplaceholder';
 import StatsPage from './statspage';
 
 const Stats = () => {

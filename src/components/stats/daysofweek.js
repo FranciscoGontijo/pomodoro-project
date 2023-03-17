@@ -11,10 +11,6 @@ const DaysOfWeekStats = () => {
             <div className='graph-container'>
                 <WeekChart/>
             </div>
-            <div className='stats-buttons-container'>
-                <button className="time-button">Time</button>
-                <button className="sessions-button">Sessions</button>
-            </div>
         </div>
     )
 };

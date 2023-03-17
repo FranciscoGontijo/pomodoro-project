@@ -113,46 +113,25 @@ const WeekChart = () => {
         setFridayTime(getFridayStats());
         setSaturdayTime(getSaturdayStats());
         setSundayTime(getSundayStats());
-    })
+    }, [dateStats]);
 
     const data = {
         labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
         datasets: [{
-            label: "Time",
+            label: "Time(min) ",
             data: [sundayTime, mondayTime, tuesdayTime, wednesdayTime, thursdayTime, fridayTime, saturdayTime],
             backgroundColor: ['rgb(36, 80, 87)', 'rgb(193, 170, 227)', 'rgb(123, 149, 87)', 'rgb(123, 149, 155)', 'rgb(146, 64, 105)', 'rgb(34, 149, 155)', 'rgb(191, 84, 72)'],
             borderColor: ['rgb(40, 40, 40)']
         }]
     };
 
-    const opt = {
-        scales: {
-          x: {
-            ticks: {
-              font: {
-                family: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"
-              },
-              color: 'blue'
-            },
-            grid: {
-              display: false
-            }
-          },
-          y: {
-            ticks: {
-              beginAtZero: true
-            }
-          }
-        }
-    }
-
-    const options = {};
-
     return (
         <>
             <Doughnut
                 data={data}
-                options={options}
+                options={{
+                    responsive: true,
+                  }}
             />
         </>
     )
