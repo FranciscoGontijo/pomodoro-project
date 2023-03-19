@@ -13,6 +13,7 @@
     padding: 150px 130px 20px;
 }
 
+/* OVERVIEW SECTION */
 .overview-container {
     border: 1px solid;
     background-color: rgb(40, 40, 40);
@@ -39,28 +40,8 @@
     padding: 20px 4px;
 }
 
-.time-button {
-    border: 1px solid gray;
-    background-color: #b7b7b7;
-    color: rgba(104, 85, 224, 1);
-    border-radius: 5px;
-    height: 30px;
-    width: fit-content;
-    align-self: center;
-    font-weight: 550;
-    width: 70px;
-    margin: 15px 13px 15px;
-}
-
-.sessions-button {
-    border: 1px solid gray;
-    background-color: rgba(104, 85, 224, 1);
-    color: #b7b7b7;
-    border-radius: 5px;
-    height: 30px;
-    width: fit-content;
-    align-self: center;
-    font-weight: 550;
+.overview-icons {
+    font-size: 30px;
 }
 
 /* WEEK DAYS SECTION */
