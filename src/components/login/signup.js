@@ -31,7 +31,7 @@ const Signup = ({ handleChange, handleClick }) => {
         <div className="signup-container">
             <form className="signup-form" onSubmit={onSubmit}>
                 <h2>Sign in</h2>
-                <i class="fa-solid fa-xmark x-mark-login" onClick={handleClick}></i>
+                <i class="fa-solid fa-xmark x-mark-signup" onClick={handleClick}></i>
             <div class="group">
                     <input 
                         className="input"

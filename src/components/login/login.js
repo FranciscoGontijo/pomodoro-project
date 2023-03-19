@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
+import axios from "axios";
+
 import UserPool from "../../util/UserPool";
+
 import { createUser } from "../../slices/userSlice";
 import { fulfilLabelList } from "../../slices/labeltagslice";
 import { fulfilDateStats } from "../../slices/statsslice";
-import axios from "axios";
 
 import "./login.css";
 
-const Login = ({ handleChange, handleClick }) => {
+const Login = ({ handleChange, handleClick, openForgotPasswordForm }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const dispatch = useDispatch();
@@ -50,8 +52,7 @@ const Login = ({ handleChange, handleClick }) => {
                     .catch((error) => {
                         console.error(error);
                     });
-                //to make requests your id is your email
-                //close the login form
+
 
             },
             onFailure: (err) => {
@@ -90,8 +91,9 @@ const Login = ({ handleChange, handleClick }) => {
                     <span class="bar"></span>
                     <label className="label">Password</label>
                 </div>
-                <button className="login-btn" type="submit">Login</button>
-                <button className="change-btn" onClick={handleChange}>change to signup</button>
+                <button className="forgot-password-btn" onClick={openForgotPasswordForm} type="button">Forgot password?</button>
+                <button className="login-btn" type="submit" >Login</button>     
+                <button className="change-btn" onClick={handleChange} type="button">change to signup</button>
             </form>
         </div>
     )

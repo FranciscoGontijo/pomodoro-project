@@ -7,6 +7,7 @@ import "./login.css";
 import Login from "./login";
 import Signup from "./signup";
 import Logout from "./logout";
+import ForgotPasswordForm from "./forgotpassword";
 
 const LoginPage = () => {
     const { userEmail } = useSelector(selectUser);
@@ -38,6 +39,10 @@ const LoginPage = () => {
         }
     };
 
+    const openForgotPasswordForm = () => {
+        setDisplay('forgotPassword')
+    };
+
     return (
         <div className='login-page-container'>
             {(display === 'closed' && userEmail === '') &&
@@ -48,13 +53,17 @@ const LoginPage = () => {
             {display === 'login' &&
                 <Login
                     handleChange={handleChange}
-                    handleClick={handleClick} />
+                    handleClick={handleClick}
+                    openForgotPasswordForm={openForgotPasswordForm} />
             }
             {display === 'signin' &&
                 <Signup
                     handleChange={handleChange}
                     handleClick={handleClick} />
             }
+            {display === 'forgotPassword' &&
+                <ForgotPasswordForm
+                    handleClick={handleClick} />}
         </div>
     )
 };
