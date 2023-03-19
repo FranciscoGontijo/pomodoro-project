@@ -23,11 +23,11 @@ export const labelTagSlice = createSlice({
         fulfilLabelList: (state, action) => {
             state.labelList = action.payload;
         },
-        resetLabelList: (state, action) => {
+        resetLabelList: (state) => {
             state.labelList = []
             state.label = {
                 label: 'SELECT LABEL',
-                color: 'rgb(104, 85, 224)'
+                color: 'rgb(72, 4, 4)'
             }
         }
     }
