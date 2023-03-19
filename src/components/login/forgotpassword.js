@@ -60,7 +60,7 @@ const ForgotPasswordForm = ({ handleClick }) => {
                 <div className="forgotPassword-container">
                     <form className="forgotPassword-form" onSubmit={sendCode}>
                         <h2>Forgot password</h2>
-                        <i class="fa-solid fa-xmark x-mark-password" onClick={handleClick}></i>
+                        <i className="fa-solid fa-xmark x-mark-password" onClick={handleClick}></i>
                         <div className="group">
                             <input
                                 className="input"
@@ -69,8 +69,8 @@ const ForgotPasswordForm = ({ handleClick }) => {
                                 type="text"
                                 required
                             />
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
+                            <span className="highlight"></span>
+                            <span className="bar"></span>
                             <label className="label">Email address</label>
                         </div>
                         <button
@@ -84,7 +84,7 @@ const ForgotPasswordForm = ({ handleClick }) => {
                 <div className="newPassword-container">
                     <form className="forgotPassword-form" onSubmit={resetPassword}>
                         <h2>Forgot password</h2>
-                        <i class="fa-solid fa-xmark x-mark-new-password" onClick={handleClick}></i>
+                        <i className="fa-solid fa-xmark x-mark-new-password" onClick={handleClick}></i>
                         <div className="group">
                             <input
                                 className="input"
@@ -93,8 +93,8 @@ const ForgotPasswordForm = ({ handleClick }) => {
                                 type="text"
                                 required
                             />
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
+                            <span className="highlight"></span>
+                            <span className="bar"></span>
                             <label className="label">Verification code</label>
                         </div>
                         <div className="group">
@@ -105,8 +105,8 @@ const ForgotPasswordForm = ({ handleClick }) => {
                                 type="password"
                                 required
                             />
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
+                            <span className="highlight"></span>
+                            <span className="bar"></span>
                             <label className="label">New password</label>
                         </div>
                         <div className="group">
@@ -117,8 +117,8 @@ const ForgotPasswordForm = ({ handleClick }) => {
                                 type="password"
                                 required
                             />
-                            <span class="highlight"></span>
-                            <span class="bar"></span>
+                            <span className="highlight"></span>
+                            <span className="bar"></span>
                             <label className="label">Confirm password</label>
                         </div>
                         <button

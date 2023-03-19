@@ -47,7 +47,7 @@ const LoginPage = () => {
         <div className='login-page-container'>
             {(display === 'closed' && userEmail === '') &&
                 <button className="initial-login-button" onClick={handleClick}>
-                    <i class="fa-regular fa-user"></i> LOG IN
+                    <i className="fa-regular fa-user"></i> LOG IN
                 </button>}
             {(display === 'closed' && userEmail !== '') && <Logout />}
             {display === 'login' &&

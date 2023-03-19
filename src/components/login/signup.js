@@ -31,27 +31,27 @@ const Signup = ({ handleChange, handleClick }) => {
         <div className="signup-container">
             <form className="signup-form" onSubmit={onSubmit}>
                 <h2>Sign in</h2>
-                <i class="fa-solid fa-xmark x-mark-signup" onClick={handleClick}></i>
-            <div class="group">
+                <i className="fa-solid fa-xmark x-mark-signup" onClick={handleClick}></i>
+            <div className="group">
                     <input 
                         className="input"
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
                         type="text" 
                         required></input>
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
+                        <span className="highlight"></span>
+                        <span className="bar"></span>
                         <label className="label">Email</label>
                 </div>
-                <div class="group">
+                <div className="group">
                     <input 
                         className="input"
                         value={password}
                         onChange={(event) => setPassword(event.target.value)}
                         type="password" 
                         required></input>
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
+                        <span className="highlight"></span>
+                        <span className="bar"></span>
                         <label className="label">Password</label>
                 </div>
                 <button className="signin-btn" type="submit">Sign In</button>

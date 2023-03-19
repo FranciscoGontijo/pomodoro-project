@@ -76,22 +76,22 @@ const Overview = () => {
                 <h1>Overview (min)</h1>
                 <div className="overview-stats-container">
                     <div className="time-stats">
-                        <i class="fa-solid fa-calendar-day overview-icons"></i>
+                        <i className="fa-solid fa-calendar-day overview-icons"></i>
                         <h2>{dailyTime}</h2>
                         <p>Today</p>
                     </div>
                     <div className="time-stats">
-                        <i class="fa-solid fa-calendar-week overview-icons"></i>
+                        <i className="fa-solid fa-calendar-week overview-icons"></i>
                         <h2>{weeklyTime}</h2>
                         <p>Week</p>
                     </div>
                     <div className="time-stats">
-                        <i class="fa-regular fa-calendar overview-icons"></i>
+                        <i className="fa-regular fa-calendar overview-icons"></i>
                         <h2>{monthlyTime}</h2>
                         <p>Month</p>
                     </div>
                     <div className="time-stats">
-                        <i class="fa-solid fa-equals overview-icons"></i>
+                        <i className="fa-solid fa-equals overview-icons"></i>
                         <h2>{allTime}</h2>
                         <p>Total</p>
                     </div>

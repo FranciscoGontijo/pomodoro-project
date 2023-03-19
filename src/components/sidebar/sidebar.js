@@ -18,7 +18,7 @@ const SideBar = () => {
             <ul>
                 <li className="functioning-nav-link">
                     <Link className="link" to="/timer">
-                        <i class="fa-regular fa-clock"></i>Timer
+                        <i className="fa-regular fa-clock"></i>Timer
                     </Link>
                 </li>
                 <li
@@ -28,7 +28,7 @@ const SideBar = () => {
                         style={status !== "ON_HOLD" ? { pointerEvents: "none" } : null}
                         className="link"
                         to="/stats">
-                        <i class="fa-solid fa-chart-column"></i>Stats
+                        <i className="fa-solid fa-chart-column"></i>Stats
                     </Link>
                 </li>
                 <li
@@ -38,7 +38,7 @@ const SideBar = () => {
                         style={status !== "ON_HOLD" ? { pointerEvents: "none" } : null}
                         className="link"
                         to="/settings">
-                        <i class="fa-solid fa-gear" ></i>Settings
+                        <i className="fa-solid fa-gear" ></i>Settings
                     </Link>
                 </li>
             </ul>
