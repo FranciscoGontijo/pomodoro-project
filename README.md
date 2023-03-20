@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# Pomodoro Timer Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a responsive React application that showcases the use of front and back-end tools and libraries. It's a Pomodoro timer that includes settings and statistics for the user. The application uses several tools and libraries to provide a complete user experience.
 
-## Available Scripts
+For authentication and authorization, AWS Cognito is used to provide secure access to the application. MongoDB is used as the database to store user data and provide fast and efficient data access. The application uses axios to make requests to the back-end and ensure seamless communication between the front-end and back-end.
 
-In the project directory, you can run:
+In addition, the application uses Redux to manage state, providing an easy-to-use and efficient way of handling application data. With this setup, users can easily manage their Pomodoro sessions, track their progress, and adjust the timer settings as needed.
 
-### `npm start`
+Overall, this project is an excellent example of how to build a complete and functional web application using a variety of modern tools and libraries. With its user-friendly interface and robust feature set, it provides a valuable resource for anyone looking to learn more about front-end and back-end development.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tools and Libraries Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React
+- Redux
+- AWS Cognito
+- MongoDB
+- Axios
+- Chart.js
+- moment
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Pomodoro timer with adjustable settings
+- User authentication and authorization with AWS Cognito
+- User statistics and progress tracking with MongoDB
+- Statistics apresentation with Chart.js
+- Seamless communication between front-end and back-end with Axios
+- Efficient state management with Redux
