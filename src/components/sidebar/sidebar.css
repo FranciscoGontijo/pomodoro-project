@@ -4,14 +4,14 @@
     flex-direction: column;
     position: fixed;
     height: 100%;
-    max-width: 250px;
+    width: 250px;
     align-content: center;
     border-right: 1px solid rgba(97, 97, 97, 0.351);
     background-color: white;
     z-index: 3;
 }
 
-@media (max-width: 751px) {
+@media (max-width: 501px) {
     .sidebar-nav {
         width: 100%;
     }
