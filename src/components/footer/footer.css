@@ -7,6 +7,12 @@
     margin-top:25px;
 }
 
+@media (max-width: 751px) {
+    .footer-container {
+        margin-left: 0;
+    }
+}
+
 .footer-container p {
     text-align: center;
     font-weight: 500;

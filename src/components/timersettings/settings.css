@@ -6,8 +6,15 @@
     align-items: center;
 }
 
+@media (max-width: 751px) {
+    .settings {
+        margin-left: 0;
+        margin-top: 100px;
+    }
+}
+
 .input-container {
-    height: 50px;
+    min-height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,6 +43,16 @@
     -webkit-transition: .2s;
     /* 0.2 seconds transition on hover */
     transition: opacity .2s;
+}
+
+@media (max-width: 500px) {
+    .slider {
+        width: 70%;
+    }
+    .input-container {
+        height: 50px;
+        margin-bottom: 30px;
+    }
 }
 
 /*SWITCH AUTOMATIC INPUT*/

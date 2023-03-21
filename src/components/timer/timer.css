@@ -7,6 +7,13 @@
     margin-left: 250px;
 }
 
+@media (max-width: 751px) {
+    .timer {
+        margin-left: 0;
+        margin-top: 30px;
+    }
+}
+
 
 /* Sessions counter section */
 .sessions-container {

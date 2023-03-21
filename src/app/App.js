@@ -1,16 +1,20 @@
 import { Routes, Route } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from "react-redux";
 
+//Import Util functions
 import UserPool from '../util/UserPool';
 import axios from 'axios';
+import useWindowSize from '../util/useWindowSize';
 
+//Import slices
 import { createUser } from '../slices/userSlice';
 import { fulfilLabelList } from '../slices/labeltagslice'
 import { fulfilDateStats, fulfilLabelStats } from '../slices/statsslice';
 
 //Import Main Components
 import SideBar from '../components/sidebar/sidebar';
+import TopNavBar from '../components/sidebar/topnavbar';
 import LoginPage from '../components/login/loginpage';
 import Timer from '../components/timer/timer';
 import Stats from '../components/stats/stats';
@@ -21,14 +25,14 @@ import Footer from '../components/footer/footer';
 import './App.css';
 
 function App() {
+  const [display, setDisplay] = useState('sidebar');
   const dispatch = useDispatch();
-
-  let email = ''
+  const screenSize = useWindowSize();
 
   useEffect(() => {
     try {
       UserPool.getCurrentUser().getSession((_err, session) => {
-        email = session.idToken.payload.email;
+        const email = session.idToken.payload.email;
         if (email) {
           dispatch(createUser(email));
           axios.get(`/labellist/${email}`)
@@ -55,16 +59,34 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    if (screenSize.width > 750) {
+      setDisplay('sidebar');
+    }
+    if (screenSize.width <= 750) {
+      setDisplay('topbar');
+    }
+  }, [screenSize])
+
+  const openNavBar = (e) => {
+    e.preventDefault();
+
+    setDisplay('sidebar');
+  };
+
+  const closeNavBar = () => {
+    if (screenSize.width <= 750) {
+      setDisplay('topbar');
+    };
+  };
+
   return (
     <>
-      <SideBar />
-      <LoginPage />
+      {display === 'topbar' && <TopNavBar openNavBar={openNavBar} />}
+      {display === 'sidebar' && <SideBar closeNavBar={closeNavBar} />}
+      {display === 'sidebar' && <LoginPage />}
       <Routes>
-        <Route path="/timer" element={
-          <div>
-            <Timer />
-          </div>
-        } />
+        <Route path="/" element={<Timer />} />
         <Route path="/stats" element={<Stats />} />
         <Route path="/settings" element={<Settings />} />
       </Routes>

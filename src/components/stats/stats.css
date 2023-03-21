@@ -10,7 +10,7 @@
 
 .stats-container {
     margin-left: 250px;
-    padding: 150px 130px 20px;
+    padding: 150px 10% 20px;
 }
 
 /* OVERVIEW SECTION */
@@ -69,8 +69,8 @@
 
 .graph-container {
     grid-area: graph;
-    height: 300px;
-    width: 400px;
+    min-height: 300px;
+    max-width: 400px;
     display: flex;
     align-content: center;
     justify-self: center;
@@ -103,8 +103,8 @@
 
 .label-graph-container {
     grid-area: graph;
-    height: 300px;
-    width: 400px;
+    min-height: 300px;
+    max-width: 400px;
     display: flex;
     align-content: center;
     justify-self: center;
@@ -113,3 +113,50 @@
 }
 
 /* CHARTS SECTION */
+
+/* RESPONSIVE QUERYS */
+@media (max-width: 1150px) {
+    .overview-stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .stats-page-container {
+        grid-template-columns: 1fr;
+    grid-template-areas: 
+    "overview"
+    "weekgraph"
+    "labelgraph";
+    }
+}
+
+@media (max-width: 950px) {
+    .overview-stats-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 751px) {
+    .stats-container {
+        margin-left: 0;
+    }
+    .overview-stats-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .stats-container {
+        padding: 150px 0 20px;
+    }
+    .overview-stats-container {
+        grid-template-columns: 1fr;
+    }
+    .overview-container {
+        padding: 20px 5px;
+    }
+    .labels-stats-outer-container {
+        padding: 20px 5px;
+    }
+    .week-stats-outer-container {
+        padding: 20px 5px;
+    }
+}

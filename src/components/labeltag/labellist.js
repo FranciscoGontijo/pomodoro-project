@@ -51,7 +51,7 @@ const LabelList = ({ goToForm, closeDisplay }) => {
 
     return (
         <div className="label-list-container">
-            <span>Labels</span><i class="fa-solid fa-xmark x-mark" onClick={closeDisplay}></i>
+            <span>Labels</span><i className="fa-solid fa-xmark x-mark" onClick={closeDisplay}></i>
             <ul>
                 {labelList.map(({ label, color }, index) => {
                     return <div className="list-div">
@@ -59,10 +59,10 @@ const LabelList = ({ goToForm, closeDisplay }) => {
                             <span style={{ backgroundColor: color }} className="color-display"></span>
                             {label}
                         </li>
-                        <i id={label} onClick={deleteLabelFromDB} class="fa-solid fa-trash"></i>
+                        <i id={label} onClick={deleteLabelFromDB} className="fa-solid fa-trash"></i>
                     </div>
                 })}
-                <li className="add-button" onClick={goToForm}><i class="fa-solid fa-plus"></i><span className="add-button-text">Add new Label</span></li>
+                <li className="add-button" onClick={goToForm}><i className="fa-solid fa-plus"></i><span className="add-button-text">Add new Label</span></li>
             </ul>
         </div>
     )

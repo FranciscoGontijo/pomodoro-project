@@ -5,7 +5,7 @@ import { selectTimer } from "../../slices/timerslice";
 import logosrc from '../../assets/images/logo.png';
 import "./sidebar.css"
 
-const SideBar = () => {
+const SideBar = ({ closeNavBar }) => {
     const { status } = useSelector(selectTimer);
     return (
         <nav className="sidebar-nav">
@@ -16,12 +16,13 @@ const SideBar = () => {
                 </div>
             </div>
             <ul>
-                <li className="functioning-nav-link">
-                    <Link className="link" to="/timer">
+                <li onClick={closeNavBar} className="functioning-nav-link">
+                    <Link className="link" to="/">
                         <i className="fa-regular fa-clock"></i>Timer
                     </Link>
                 </li>
-                <li
+                <li 
+                    onClick={closeNavBar}
                     className={status === "ON_HOLD" ? 'functioning-nav-link link' : 'link disabled-nav-link'}
                     title={status !== "ON_HOLD" && 'Reset timer to access Stats'}>
                     <Link
@@ -32,6 +33,7 @@ const SideBar = () => {
                     </Link>
                 </li>
                 <li
+                    onClick={closeNavBar}
                     className={status === "ON_HOLD" ? 'functioning-nav-link link' : 'link disabled-nav-link'}
                     title={status !== "ON_HOLD" && 'Reset timer to access Settings'}>
                     <Link
