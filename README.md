@@ -25,4 +25,4 @@ Overall, this project is an excellent example of how to build a complete and fun
 - User statistics and progress tracking with MongoDB
 - Statistics apresentation with Chart.js
 - Seamless communication between front-end and back-end with Axios
-- Efficient state management with Redux
+
