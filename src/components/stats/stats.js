@@ -3,22 +3,32 @@ import UserPool from "../../util/UserPool";
 
 import "./stats.css";
 
-import StatsPlaceHolder from './statsplaceholder';
-import StatsPage from './statspage';
+import Overview from "./overview.js";
+import DaysOfWeekStats from "./daysofweek";
+import LabelStatsGraph from "./labelsgraph";
 
 const Stats = () => {
     const user = UserPool.getCurrentUser();
 
     return (
         <div className="stats-container">
-            { user === null ? <StatsPlaceHolder/> : <StatsPage />}
+            {user === null ?
+                <div>
+                    <h3>Nothing to show here!</h3>
+                    <p>Log In to retrive your stats</p>
+                </div> :
+                <div className="stats-page-container">
+                    <Overview />
+                    <DaysOfWeekStats />
+                    <LabelStatsGraph />
+                </div>}
         </div>
     )
 };
 
 export default Stats;
 
-//Stats is and requested page that appears if the user is logged in. 
+//Stats is and requested page that appears if the user is logged in.
 //Basicly every data/ information that we will use in this page is requested to a server and will only be answered if the user is logged in
 //Will request unique information for each User
 //To do that we need a server / database
