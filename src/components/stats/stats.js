@@ -13,7 +13,7 @@ const Stats = () => {
     return (
         <div className="stats-container">
             {user === null ?
-                <div>
+                <div className="stats-placeholder">
                     <h3>Nothing to show here!</h3>
                     <p>Log In to retrive your stats</p>
                 </div> :
