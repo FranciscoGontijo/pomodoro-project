@@ -8,12 +8,6 @@ const Footer = () => {
         <div className="footer-container">
             <p>Made by Francisco Gontijo</p>
             <nav className="social-nav">  
-                <a href="https://www.facebook.com/tatiko.gontijo" target="_blank">
-                    <i className="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://www.instagram.com/tatikogontijo/" target="_blank">
-                    <i className="fab fa-instagram"></i>
-                </a>
                 <a href="https://www.linkedin.com/in/francisco-alexandre-cardoso-melo-gontijo-5a469b239/" target="_blank">
                     <i className="fab fa-linkedin-in"></i>
                 </a>

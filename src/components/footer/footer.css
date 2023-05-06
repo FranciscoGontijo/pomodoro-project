@@ -21,7 +21,7 @@
 .footer-container .social-nav {
     display: grid;
     justify-items: center;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     font-size: 25px;
     height: 40px;
     width: 200px;
