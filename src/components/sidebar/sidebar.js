@@ -7,21 +7,24 @@ import "./sidebar.css"
 
 const SideBar = ({ closeNavBar }) => {
     const { status } = useSelector(selectTimer);
+
     return (
         <nav className="sidebar-nav">
-            <div className="logo-container">
-                <img src={logosrc} alt="logo" className="logo" />
-                <div className="logo-title-container">
-                    <h2>Pomodoro</h2><span>App</span>
-                </div>
-            </div>
+            <Link className="link" to="/" >
+                <div onClick={closeNavBar} className="logo-container">
+                    <img src={logosrc} alt="logo" className="logo" />
+                    <div className="logo-title-container">
+                        <h2>Pomodoro</h2><span>App</span>
+                    </div>
+                </div></Link>
+
             <ul>
                 <li onClick={closeNavBar} className="functioning-nav-link">
                     <Link className="link" to="/">
                         <i className="fa-regular fa-clock"></i>Timer
                     </Link>
                 </li>
-                <li 
+                <li
                     onClick={closeNavBar}
                     className={status === "ON_HOLD" ? 'functioning-nav-link link' : 'link disabled-nav-link'}
                     title={status !== "ON_HOLD" && 'Reset timer to access Stats'}>
