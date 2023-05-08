@@ -14,6 +14,7 @@ import "./login.css";
 const Login = ({ handleChange, handleClick, openForgotPasswordForm }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [wrongPassword, setWrongPassword] = useState(false);
     const dispatch = useDispatch();
 
     const onSubmit = (e) => {
@@ -35,7 +36,6 @@ const Login = ({ handleChange, handleClick, openForgotPasswordForm }) => {
 
                 dispatch(createUser({ userEmail: email }));
 
-
                 handleClick(e);
                 //get stats
                 axios.get(`/userstats/${email}`)
@@ -52,11 +52,10 @@ const Login = ({ handleChange, handleClick, openForgotPasswordForm }) => {
                     .catch((error) => {
                         console.error(error);
                     });
-
-
             },
             onFailure: (err) => {
                 console.log('onFailure: ', err);
+                setWrongPassword(true);
             },
             newPasswordRequired: (data) => {
                 console.log('newPasswordRequired: ', data);
@@ -94,7 +93,9 @@ const Login = ({ handleChange, handleClick, openForgotPasswordForm }) => {
                 <button className="forgot-password-btn" onClick={openForgotPasswordForm} type="button">Forgot password?</button>
                 <button className="login-btn" type="submit" >Login</button>     
                 <button className="change-btn" onClick={handleChange} type="button">change to signup</button>
+                {wrongPassword && <p style={{color: "white", margin: "0"}}>wrong password!</p>}
             </form>
+            
         </div>
     )
 };
