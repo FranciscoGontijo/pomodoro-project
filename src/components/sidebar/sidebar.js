@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux";
 import { selectTimer } from "../../slices/timerslice";
+import { useRef, useEffect } from "react";
 
 import logosrc from '../../assets/images/logo.png';
 import "./sidebar.css"
@@ -8,8 +9,23 @@ import "./sidebar.css"
 const SideBar = ({ closeNavBar }) => {
     const { status } = useSelector(selectTimer);
 
+    let navBarRef = useRef();
+    useEffect(() => {
+        let handler = (e) => {
+            if (!navBarRef.current.contains(e.target)) {
+                closeNavBar();
+            };
+        };
+
+        document.addEventListener("mousedown", handler);
+
+        return () => {
+            document.removeEventListener("mousedown", handler);
+        }
+    });
+
     return (
-        <nav className="sidebar-nav">
+        <nav ref={navBarRef} className="sidebar-nav">
             <Link className="link" to="/" >
                 <div onClick={closeNavBar} className="logo-container">
                     <img src={logosrc} alt="logo" className="logo" />
@@ -27,7 +43,7 @@ const SideBar = ({ closeNavBar }) => {
                 <li
                     onClick={closeNavBar}
                     className={status === "ON_HOLD" ? 'functioning-nav-link link' : 'link disabled-nav-link'}
-                    title={status !== "ON_HOLD" && 'Reset timer to access Stats'}>
+                    title={status !== "ON_HOLD" ? 'Reset timer to access Stats' : ''}>
                     <Link
                         style={status !== "ON_HOLD" ? { pointerEvents: "none" } : null}
                         className="link"
@@ -38,7 +54,7 @@ const SideBar = ({ closeNavBar }) => {
                 <li
                     onClick={closeNavBar}
                     className={status === "ON_HOLD" ? 'functioning-nav-link link' : 'link disabled-nav-link'}
-                    title={status !== "ON_HOLD" && 'Reset timer to access Settings'}>
+                    title={status !== "ON_HOLD" ? 'Reset timer to access Stats' : ''}>
                     <Link
                         style={status !== "ON_HOLD" ? { pointerEvents: "none" } : null}
                         className="link"

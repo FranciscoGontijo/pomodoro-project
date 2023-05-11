@@ -12,6 +12,7 @@
     width: fit-content;
     align-self: center;
     font-weight: bolder;
+    cursor: pointer;
 }
 
 .hidden {

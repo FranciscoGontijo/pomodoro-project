@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../slices/userSlice";
 
@@ -13,9 +13,20 @@ const LoginPage = () => {
     const { userEmail } = useSelector(selectUser);
     const [display, setDisplay] = useState('closed');
 
-    //have to handle login and close the login page
-    //have to change from log out button when logges out
-    //have to log in directly after sign up and close the login page
+    let loginRef = useRef();
+    useEffect(() => {
+        let handler = (e) => {
+            if (!loginRef.current.contains(e.target)) {
+                setDisplay('closed');
+            }
+        }
+
+        document.addEventListener("mousedown", handler);
+
+        return () => {
+            document.removeEventListener("mousedown", handler);
+        }
+    })
 
 
     const handleClick = (e) => {
@@ -44,7 +55,7 @@ const LoginPage = () => {
     };
 
     return (
-        <div className='login-page-container'>
+        <div ref={loginRef} className='login-page-container'>
             {(display === 'closed' && userEmail === '') &&
                 <button className="initial-login-button" onClick={handleClick}>
                     <i className="fa-regular fa-user"></i> LOG IN

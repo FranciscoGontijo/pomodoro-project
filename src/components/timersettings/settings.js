@@ -52,7 +52,7 @@ const Settings = () => {
             <h1>Settings</h1>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label for="work-time" className="work-time-label">Work duration: {work} min</label>
+                    <label htmlFor="work-time" className="work-time-label">Work duration: {work} min</label>
                     <div className="input-container">
                         <span>5 min</span>
                         <input type="range" className="slider" min="5" max="60" id="work-time" onChange={handleWorkChange} value={work} />
@@ -60,7 +60,7 @@ const Settings = () => {
                     </div>
                 </div>
                 <div>
-                    <label for="short-break" className="short-break-label">Short break duration: {shortBreak} min</label>
+                    <label htmlFor="short-break" className="short-break-label">Short break duration: {shortBreak} min</label>
                     <div className="input-container">
                         <span>1 min</span>
                         <input type="range" className="slider" min="1" max="30" id="short-break" onChange={handleShortChange} value={shortBreak} />
@@ -68,7 +68,7 @@ const Settings = () => {
                     </div>
                 </div>
                 <div>
-                    <label for="long-break" className="long-break-label">Long break duration: {longBreak} min</label>
+                    <label htmlFor="long-break" className="long-break-label">Long break duration: {longBreak} min</label>
                     <div className="input-container">
                         <span>1 min</span>
                         <input type="range" className="slider" min="1" max="45" id="long-break" onChange={handleLongChange} value={longBreak} />
@@ -76,7 +76,7 @@ const Settings = () => {
                     </div>
                 </div>
                 <div>
-                    <label for="rounds" className="rounds-label">Rounds: {round}</label>
+                    <label htmlFor="rounds" className="rounds-label">Rounds: {round}</label>
                     <div className="input-container">
                         <span>2</span>
                         <input type="range" className="slider" min="2" max="15" id="rounds" onChange={handleRoundChange} value={round} />

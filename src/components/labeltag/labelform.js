@@ -47,7 +47,7 @@ const LabelForm = ({ closeDisplay }) => {
 
     return (
         <div className="edit-label-container">
-            <h3>Create Label</h3><i class="fa-solid fa-xmark x-mark" onClick={closeDisplay}></i>
+            <h3>Create Label</h3><i className="fa-solid fa-xmark x-mark" onClick={closeDisplay}></i>
             <form onSubmit={handleSubmit}>
                 <input
                     className="input-label"
@@ -55,7 +55,7 @@ const LabelForm = ({ closeDisplay }) => {
                     value={label}
                     onChange={handleLabelChange}
                     required />
-                <span class="highlight-label"></span>
+                <span className="highlight-label"></span>
                 <label className="label-label">Label name</label>
                 <br />
                 <select className="select-input-label" name="colors" id="colors" onChange={handleColorChange} required>
