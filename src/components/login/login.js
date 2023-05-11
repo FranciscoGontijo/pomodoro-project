@@ -93,7 +93,7 @@ const Login = ({ handleChange, handleClick, openForgotPasswordForm }) => {
                 <button className="forgot-password-btn" onClick={openForgotPasswordForm} type="button">Forgot password?</button>
                 <button className="login-btn" type="submit" >Login</button>     
                 <button className="change-btn" onClick={handleChange} type="button">change to signup</button>
-                {wrongPassword && <p style={{color: "white", margin: "0"}}>wrong password!</p>}
+                {wrongPassword && <p>wrong password!</p>}
             </form>
             
         </div>
