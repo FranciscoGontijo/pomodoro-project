@@ -95,7 +95,6 @@ const Login = ({ handleChange, handleClick, openForgotPasswordForm }) => {
                 <button className="change-btn" onClick={handleChange} type="button">change to signup</button>
                 {wrongPassword && <p>wrong password!</p>}
             </form>
-            
         </div>
     )
 };
