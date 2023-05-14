@@ -7,7 +7,7 @@ import UserPool from "../../util/UserPool";
 
 import { createUser } from "../../slices/userSlice";
 import { fulfilLabelList } from "../../slices/labeltagslice";
-import { fulfilDateStats } from "../../slices/statsslice";
+import { fulfilDateStats, fulfilLabelStats } from "../../slices/statsslice";
 
 import "./login.css";
 
@@ -40,7 +40,8 @@ const Login = ({ handleChange, handleClick, openForgotPasswordForm }) => {
                 //get stats
                 axios.get(`/userstats/${email}`)
                     .then((response) => {
-                        dispatch(fulfilDateStats(response.data));
+                        dispatch(fulfilDateStats(response.data.dateStats));
+                        dispatch(fulfilLabelStats(response.data.labelStats));
                     })
                     .catch((error) => {
                         console.error(error);
@@ -91,7 +92,7 @@ const Login = ({ handleChange, handleClick, openForgotPasswordForm }) => {
                     <label className="label">Password</label>
                 </div>
                 <button className="forgot-password-btn" onClick={openForgotPasswordForm} type="button">Forgot password?</button>
-                <button className="login-btn" type="submit" >Login</button>     
+                <button className="login-btn" type="submit" >Login</button>
                 <button className="change-btn" onClick={handleChange} type="button">change to signup</button>
                 {wrongPassword && <p>wrong password!</p>}
             </form>
