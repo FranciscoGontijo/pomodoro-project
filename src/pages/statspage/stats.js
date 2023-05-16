@@ -3,9 +3,9 @@ import UserPool from "../../util/UserPool";
 
 import "./stats.css";
 
-import Overview from "./overview.js";
-import DaysOfWeekStats from "./daysofweek";
-import LabelStatsGraph from "./labelsgraph";
+import Overview from "../../components/stats/overview.js";
+import DaysOfWeekStats from "../../components/stats/daysofweek";
+import LabelStatsGraph from "../../components/stats/labelsgraph";
 
 const Stats = () => {
     const user = UserPool.getCurrentUser();

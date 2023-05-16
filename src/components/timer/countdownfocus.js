@@ -8,7 +8,7 @@ import { toggleStart, changeStatus, changeTimer, selectTimer } from "../../slice
 import { selectCurrentLabel } from '../../slices/labeltagslice';
 import { selectUser } from '../../slices/userSlice';
 
-import './timer.css'
+import './timercomponents.css'
 
 import toShortBreakSound from "../../assets/notification/toShortBreakSound.wav";
 import toLongBreakSound from "../../assets/notification/toLongBreakSound.wav";
@@ -16,7 +16,7 @@ import toLongBreakSound from "../../assets/notification/toLongBreakSound.wav";
 const CountdownFocus = ({ handleNext }) => {
     const settings = useSelector(selectSettings);
     const { start, status } = useSelector(selectTimer);
-    const { label, color } = useSelector(selectCurrentLabel);
+    const { label } = useSelector(selectCurrentLabel);
     const { userEmail } = useSelector(selectUser);
     const [timerMinutes, setTimerMinutes] = useState(settings.workTime);
     const [timerSeconds, setTimerSeconds] = useState(0);
@@ -46,7 +46,7 @@ const CountdownFocus = ({ handleNext }) => {
                 const weekDay = now.format('dddd');
                 const roundTime = settings.workTime;
 
-                axios.put('addround', {
+                axios.put('/addround', {
                     userEmail: userEmail,
                     date: date,
                     roundTime: roundTime,

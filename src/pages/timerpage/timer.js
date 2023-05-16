@@ -5,10 +5,10 @@ import { selectTimer, changeTimer } from "../../slices/timerslice";
 
 import "./timer.css";
 
-import LabelTag from "../labeltag/labeltag";
-import CountdownFocus from "./countdownfocus";
-import CountdownShort from "./countdownshort";
-import CountdownLong from "./countdownlong";
+import LabelTag from "../../components/labeltag/labeltag";
+import CountdownFocus from "../../components/timer/countdownfocus";
+import CountdownShort from "../../components/timer/countdownshort";
+import CountdownLong from "../../components/timer/countdownlong";
 
 const Timer = () => {
     const { rounds, resetRound } = useSelector(selectSettings);

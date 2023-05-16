@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { selectSettings, resetRounds } from '../../slices/settingsslice'
 import { toggleStart, changeStatus, changeTimer, selectTimer } from "../../slices/timerslice";
 
-import "./timer.css"
+import './timercomponents.css'
 import toFocusSound from "../../assets/notification/toFocusSound.wav";
 
 const CountdownLong = ({ handleNext }) => {

@@ -2,7 +2,7 @@ import React from 'react';
 
 import WeekChart from './weekchart';
 
-import "./stats.css";
+import "./statscomponents.css";
 
 const DaysOfWeekStats = () => {
     return (

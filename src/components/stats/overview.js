@@ -4,7 +4,7 @@ import moment from 'moment';
 
 import { selectDateStats } from "../../slices/statsslice";
 
-import './stats.css'
+import "./statscomponents.css";
 
 const Overview = () => {
     const dateStats = useSelector(selectDateStats);

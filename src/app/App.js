@@ -16,9 +16,9 @@ import { fulfilDateStats, fulfilLabelStats } from '../slices/statsslice';
 import SideBar from '../components/sidebar/sidebar';
 import TopNavBar from '../components/sidebar/topnavbar';
 import LoginPage from '../components/login/loginpage';
-import Timer from '../components/timer/timer';
-import Stats from '../components/stats/stats';
-import Settings from '../components/timersettings/settings';
+import Timer from '../pages/timerpage/timer';
+import Stats from '../pages/statspage/stats';
+import Settings from '../pages/timersettings/settings';
 import Footer from '../components/footer/footer';
 
 //Import StyleSheet

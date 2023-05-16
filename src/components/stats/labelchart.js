@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { selectLabelStats } from "../../slices/statsslice";
 
-import "./stats.css";
+import "./statscomponents.css";
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';

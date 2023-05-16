@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { selectLabelList, deleteLabel, changeLabel } from "../../slices/labeltagslice";
 import { selectUser } from "../../slices/userSlice";
-import UserPool from "../../util/UserPool";
 
 import './labellist.css'
 
@@ -12,7 +11,6 @@ const LabelList = ({ goToForm, closeDisplay }) => {
     const labelList = useSelector(selectLabelList);
     const { userEmail } = useSelector(selectUser);
     const dispatch = useDispatch();
-    const user = UserPool.getCurrentUser();
 
     //Delete Label
     const deleteLabelFromDB = (e) => {
