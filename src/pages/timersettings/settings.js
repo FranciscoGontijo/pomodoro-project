@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 import { changeSettings, selectSettings } from "../../slices/settingsslice";
 
 import "./settings.css";
@@ -12,21 +14,22 @@ const Settings = () => {
     const [round, setRounds] = useState(rounds);
     const [checked, setChecked] = useState(true);
     const dispatch = useDispatch();
+    const navigate = useNavigate(); 
 
     const handleWorkChange = (e) => {
         setWorkTime(time => time = e.target.value);
     };
 
     const handleShortChange = (e) => {
-        setShortBreakTime(time => time = e.target.value);
+        setShortBreakTime((time) => time = e.target.value);
     };
 
     const handleLongChange = (e) => {
-        setLongBreakTime(time => time = e.target.value);
+        setLongBreakTime((time) => time = e.target.value);
     };
 
     const handleRoundChange = (e) => {
-        setRounds(round => round = e.target.value);
+        setRounds((round) => round = e.target.value);
     };
 
     const handleAutomaticChange = (e) => {
@@ -45,6 +48,7 @@ const Settings = () => {
                 automatic: checked
             })
         );
+        navigate('/');
     };
 
     return (
