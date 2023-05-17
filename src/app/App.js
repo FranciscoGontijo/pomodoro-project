@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 
 //Import Util functions
 import UserPool from '../util/UserPool';
-import axios from 'axios';
 import useWindowSize from '../util/useWindowSize';
 
 //Import slices
@@ -23,6 +22,9 @@ import Footer from '../components/footer/footer';
 
 //Import StyleSheet
 import './App.css';
+
+import axios from "axios";
+axios.defaults.baseURL = "https://franciscogontijo-pomodoroapp-server.onrender.com/";
 
 function App() {
   const [display, setDisplay] = useState('sidebar');
