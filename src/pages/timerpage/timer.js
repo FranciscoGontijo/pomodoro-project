@@ -16,7 +16,7 @@ const Timer = () => {
     const [sessions, setSessions] = useState('4');
     const dispatch = useDispatch();
 
-    useEffect(() => { setSessions(sessions => sessions = rounds) }, []);
+    useEffect(() => { setSessions(sessions => sessions = rounds) }, [rounds]);
 
     const handleNext = () => {
         if (title === 'short' || title === 'long') {
